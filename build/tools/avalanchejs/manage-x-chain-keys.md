@@ -1,6 +1,6 @@
-# Manage X-Chain Keys
+# Administrar las teclas de cadena X
 
-AvalancheJS comes with its own AVM Keychain. This KeyChain is used in the functions of the API, enabling them to sign using keys it’s registered. The first step in this process is to create an instance of AvalancheJS connected to our Avalanche platform endpoint of choice.
+AvalanchejS viene con su propio Llavero AVM. Esta KeyChain se utiliza en las funciones de la API, permitiéndoles firmar utilizando teclas que está registrado. El primer paso en este proceso es crear una instancia de AvalanchejS conectada a nuestra plataforma de Avalanche.
 
 ```text
 import {
@@ -8,7 +8,7 @@ import {
     BinTools,
     Buffer,
     BN
-  } from "avalanche" 
+  } from "avalanche"
 
 let bintools = BinTools.getInstance();
 
@@ -18,41 +18,41 @@ let ava = new avalanche.Avalanche("localhost", 9650, "http", myNetworkID, myBloc
 let xchain = ava.XChain(); //returns a reference to the X-Chain used by AvalancheJS
 ```
 
-## Accessing the Keychain <a id="accessing-the-keychain"></a>
+## Acceso al llavero<a id="accessing-the-keychain"></a>
 
-The KeyChain is accessed through the X-Chain and can be referenced directly or through a reference variable.
+La cadena de teclas se accede a través de la cadena X y se puede hacer referencia directamente o a través de una variable de referencia.
 
 ```text
 let myKeychain = xchain.keyChain();
 ```
 
-This exposes the instance of the class AVMKeyChain which is created when the X-Chain API is created. At present, this supports secp256k1 curve for ECDSA key pairs.
+Esto expone la instancia de la clase AVMKeyChain que se crea cuando se crea la API de cadena X. En la actualidad, esto soporta la curva secp256k1 para pares de teclas ECDSA.
 
-## Creating X-Chain Key Pairs <a id="creating-x-chain-key-pairs"></a>
+## Creando pares de llave de cadena X<a id="creating-x-chain-key-pairs"></a>
 
-The KeyChain has the ability to create new KeyPairs for you and return the address associated with the key pair.
+La KeyChain tiene la capacidad de crear nuevos KeyPairs para usted y devuelve la dirección asociada al par de clave.
 
 ```text
 let newAddress1 = myKeychain.makeKey(); //returns a Buffer for the address
 ```
 
-You may also import your existing private key into the KeyChain using either a Buffer…
+También puede importar su clave privada existente en la KeyChain usando un Buffer …
 
 ```text
 let mypk = bintools.avaDeserialize("24jUJ9vZexUM6expyMcT48LBx27k1m7xpraoV62oSQAHdziao5"); //returns a Buffer
 let newAddress2 = myKeychain.importKey(mypk); //returns a Buffer for the address
 ```
 
-… or an Avalanche serialized string works, too:
+… o una cuerda serializada Avalanche funciona:
 
 ```text
 let mypk = "24jUJ9vZexUM6expyMcT48LBx27k1m7xpraoV62oSQAHdziao5";
 let newAddress2 = myKeychain.importKey(mypk); //returns a Buffer for the address
 ```
 
-## Working with Keychains <a id="working-with-keychains"></a>
+## Trabajando con llaveros<a id="working-with-keychains"></a>
 
-The X-Chains’s KeyChain has standardized key management capabilities. The following functions are available on any KeyChain that implements this interface.
+La KeyChain de X-Chains’s tiene capacidades de gestión clave estandarizadas. Las siguientes funciones están disponibles en cualquier KeyChain que implementa esta interfaz.
 
 ```text
 let addresses = myKeychain.getAddresses(); //returns an array of Buffers for the addresses
@@ -61,9 +61,9 @@ let exists = myKeychain.hasKey(newAddress1); //returns true if the address is ma
 let keypair = myKeychain.getKey(newAddress1); //returns the KeyPair class
 ```
 
-## Working with Keypairs <a id="working-with-keypairs"></a>
+## Trabajar con Keypairs<a id="working-with-keypairs"></a>
 
-The X-Chain’s KeyPair has standardized KeyPair functionality. The following operations are available on any KeyPair that implements this interface.
+KeyPair de la cadena X-Chain’s la funcionalidad estándar de KeyPair. Las siguientes operaciones están disponibles en cualquier KeyPair que implementa esta interfaz.
 
 ```text
 let address = keypair.getAddress(); //returns Buffer
