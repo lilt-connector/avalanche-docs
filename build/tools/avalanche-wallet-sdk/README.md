@@ -1,53 +1,53 @@
-# Wallet SDK
+# Cartera SDK
 
-## Notice: Beta Release🔴
+## Aviso: Beta Release🔴
 
-This library is under rapid development and there may be frequent breaking changes. An audit is pending.
+Esta biblioteca está en rápido desarrollo y puede haber cambios frecuentes de rotura. Está pendiente una auditoría.
 
-## Avalanche Wallet SDK \(Beta\)
+## Cartera Avalanche SDK \(Beta\)
 
-The Avalanche Wallet SDK is a TypeScript library for creating and managing non-custodial wallets on the Avalanche network.
+La cartera de Avalanche SDK es una biblioteca TypeScript para crear y gestionar carteras no privativas de libertad en la red Avalanche.
 
-It provides high-level methods to transact on Avalanche's X-Chain, P-Chain and C-Chain.
+Proporciona métodos de alto nivel para transact en la cadena X, cadena P y cadena C de Avalanche.
 
-The wallet types are supported:
+Los tipos de billetera son compatibles:
 
-* Singleton Wallets
-* Ledger Wallets
-* Mnemonic Wallets
-* XPUB Wallets
+* Carteras de Singleton
+* Carteras de Ledger
+* Carteras Mnemónicas
+* Carteras XPUB
 
-Using `avalanche-wallet-sdk`, developers can:
+Utilizando `avalanche-wallet-sdk`, los desarrolladores pueden:
 
-* Receive and send tokens and NFTs.
-* Transfer funds between chains
-* Add a node to the validator set
-* Delegate stake to a validator
-* Create keystore files from wallet instances
-* Get the transaction history of a wallet
-* Mint NFTs on the X-Chain
+* Recibir y enviar fichas y NFTs.
+* Transferir fondos entre cadenas
+* Añadir un nodo al conjunto del validador
+* Delegado de la participación en un validador
+* Crear archivos de keystore desde instancias de billetera
+* Obtenga el historial de transacciones de una cartera
+* Mint NFTs en la cadena X-
 
-### Installation
+### Instalación de instalaciones
 
-Source code can be found in this library's [Github repo](https://github.com/ava-labs/avalanche-wallet-sdk).
+El código fuente se puede encontrar en la [repo. de Github](https://github.com/ava-labs/avalanche-wallet-sdk) de esta biblioteca.
 
-#### Install with `npm`
+#### Instalar con `npm`
 
-`npm install --save @avalabs/avalanche-wallet-sdk`
+`npm instale --save @avalabs/avalanche-wallet-sdk sdk`
 
-#### Install with `yarn`
+#### Instalar con `hilo`
 
-`yarn add @avalabs/avalanche-wallet-sdk`
+`añadir @avalabs/avalanche-wallet-sdk`
 
-### Classes
+### Clases de tipo
 
-See [here](wallet-classes.md) for Classes exposed by this library.
+Vea [aquí](wallet-classes.md) para las clases expuestas por esta biblioteca.
 
-### Example Usage
+### Uso de ejemplo
 
-#### Event Listeners
+#### Oyentes del evento
 
-Every wallet instance will fire events to indicate changes in its state.
+Cada instancia de la billetera disparará eventos para indicar cambios en su estado.
 
 ```typescript
 // Create a wallet instance
@@ -75,7 +75,7 @@ myWallet.on('balanceChangedC', (newBalance)=>{
 })
 ```
 
-#### Sending AVAX
+#### Envío de AVAX
 
 ```typescript
 import {MnemonicWallet, BN} from '@avalabs/avalanche-wallet-sdk'
@@ -94,9 +94,9 @@ let amount = new BN(1)
 let txID = await myWallet.sendAvax(to, amount)
 ```
 
-#### Changing Networks
+#### Cambiando las redes
 
-By default the SDK is connected to the Avalanche Mainnet.
+Por defecto, el SDK está conectado a la Avalanche Mainnet.
 
 ```typescript
 import { NetworkConstants, Network} from '@avalabs/avalanche-wallet-sdk';
@@ -108,9 +108,9 @@ Network.setNetwork(NetworkConstants.MainnetConfig)
 Network.setNetwork(NetworkConstants.TestnetConfig)
 ```
 
-#### Printing BN \(Big Number\)
+#### Impresión BN \(Big Number\)
 
-Token amounts are represented in their smallest divisible unit using BN.js. The `Utils` namespace has helper functions to display BN numbers in a human readable way.
+Las cantidades de token se representan en su unidad divisible más pequeña utilizando BN.js. El espacio de nombres de `Utils` tiene funciones de ayuda para mostrar números BN de una manera legible humana.
 
 ```typescript
 import {Utils} from '@avalabs/avalanche-wallet-sdk'
@@ -124,9 +124,9 @@ let amtC = new BN(1234567000000000000000)
 Utils.bnToAvaxC(amtC) // 1,234.567
 ```
 
-#### Websocket Provider
+#### Proveedor de Websocket
 
-Use the `WebsocketProvider` class to update wallet balances in real time without polling.
+Utilice la clase `WebsocketProvider` para actualizar los saldos de billetera en tiempo real sin votación.
 
 ```typescript
 import { Network, NetworkConstants } from 'avalanche-wallet-sdk';
@@ -145,9 +145,9 @@ provider.removeWallet(myWallet)
 provider.setNetwork(NetworkConstants.TestnetConfig) // connect to Fuji testnet
 ```
 
-#### Adding ERC20 Tokens
+#### Añadiendo ERC20 ERC20
 
-The SDK comes loaded with a set of ERC20 contracts. You can add additional contracts like this:
+El SDK viene cargado con un conjunto de contratos ERC20. Puede agregar contratos adicionales como este:
 
 ```typescript
 import { Assets } from '@avalabs/avalanche-wallet-sdk'
