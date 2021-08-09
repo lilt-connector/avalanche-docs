@@ -1,30 +1,30 @@
-# Public API
+# API pública
 
-There is a public API server that allows developers to access the Avalanche network without having to run a node themselves. The public API server is actually several [AvalancheGo](https://github.com/ava-labs/avalanchego) nodes behind a load balancer to ensure high availability and high request throughput.
+Hay un servidor de API público que permite a los desarrolladores acceder a la red Avalanche sin tener que ejecutar un nodo ellos mismos. El servidor API público es en realidad varios nodos [AvalancheGo](https://github.com/ava-labs/avalanchego) detrás de un balancer de carga para garantizar una alta disponibilidad y alta capacidad de producción.
 
-## Using the Public API nodes
+## Utilizando los nodos de API públicas
 
-The public API server is at `https://api.avax.network/` for Avalanche Mainnet and `https://api.avax-test.network/` for Avalanche Testnet. To access a particular API, just append the relevant API endpoint, as documented [here](../avalanchego-apis/issuing-api-calls.md). For example, the URL to send X-Chain API calls to is `https://api.avax.network/ext/bc/X`.
+El servidor de API público está en `https://api.avax.network/``` Avalanche Mainnet y https://api.avax.network/ para Avalanche Testnet. Para acceder a una API en particular, simplemente añada el punto final de API relevante, como se documenta [aquí](../avalanchego-apis/issuing-api-calls.md). Por ejemplo, la URL para enviar llamadas API de cadena X es `https://api.avax.network/ext/bc/X`.
 
-## Supported APIs
+## API compatibles
 
-The public API server supports all the API endpoints that make sense to be available on a public-facing service, including APIs for the [X-Chain](../avalanchego-apis/exchange-chain-x-chain-api.md), [P-Chain](../avalanchego-apis/platform-chain-p-chain-api.md) and [C-Chain](../avalanchego-apis/contract-chain-c-chain-api.md). For a full list of available APIs see [here](../avalanchego-apis/).
+El servidor API público admite todos los puntos finales de API que tienen sentido estar disponibles en un servicio de orientación pública, incluyendo API para la cadena [X-Chain](../avalanchego-apis/exchange-chain-x-chain-api.md), [P-Chain](../avalanchego-apis/platform-chain-p-chain-api.md) y [C-Chain](../avalanchego-apis/contract-chain-c-chain-api.md). Para obtener una lista completa de API disponibles consulte [aquí](../avalanchego-apis/).
 
-## Sticky sessions
+## Sesiones pegajosas
 
-Requests to the public API server API are distributed by a load balancer to an individual node. As a result, consecutive requests may go to different nodes. That can cause issues for some use cases. For example, one node may think a given transaction is accepted, while for another node the transaction is still processing. To work around this, you can use 'sticky sessions', as documented [here](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials). This allows consecutive API calls to be routed to the same node.
+Las solicitudes a la API pública de servidor API se distribuyen por un balancer de carga a un nodo individual. Como resultado, las solicitudes consecutivas pueden ir a diferentes nodos. Eso puede causar problemas para algunos casos de uso. Por ejemplo, un nodo puede pensar que una transacción dada es aceptada, mientras que para otro nodo la transacción todavía está procesando. Para trabajar en esto, puedes usar 'sesiones pegajosas', como se [documentó aquí](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials). Esto permite que las llamadas de API consecutivas sean enviadas al mismo nodo.
 
-If you're using [AvalancheJS](avalanchejs/) to access the public API, simply set the following in your code:
+Si utiliza [AvalanchejS](avalanchejs/) para acceder a la API pública, simplemente establece lo siguiente en su código:
 
 ```javascript
-avalanche.setRequestConfig('withCredentials', true)
+avalanche.setRequestConfig("withCredentials", true);
 ```
 
-## Availability
+## Disponibilidad de información
 
-Usage of public API nodes is free and available to everyone without any authentication or authorization. Rate limiting is present, but many of the API calls are cached, and the rate limits are quite high. If your application is running up against the limits, please [contact us](https://chat.avalabs.org).
+El uso de nodos de API públicas es gratuito y disponible para todos sin autenticación o autorización. La limitación de velocidad está presente, pero muchas de las llamadas API están almacenadas, y los límites de velocidad son bastante altos. Si su solicitud se está ejecutando contra los límites, por favor [póngase en contacto con nosotros](https://chat.avalabs.org).
 
-## Support
+## Apoyo al apoyo
 
-If you have questions, problems or suggestions, come [talk to us](https://chat.avalabs.org/).
+Si tienes preguntas, problemas o sugerencias, ven [a hablar con nosotros](https://chat.avalabs.org/).
 
