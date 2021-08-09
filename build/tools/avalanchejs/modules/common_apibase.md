@@ -1,10 +1,10 @@
-[avalanche](../README.md) › [Common-APIBase](common_apibase.md)
+[avalancha](../README.md) › [Common-APIBase](common_apibase.md)
 
-# Module: Common-APIBase
+# Módulo común: Common-APIBase
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
-* [APIBase](../classes/common_apibase.apibase.md)
+* [APIBA](../classes/common_apibase.apibase.md)
 * [RequestResponseData](../classes/common_apibase.requestresponsedata.md)
