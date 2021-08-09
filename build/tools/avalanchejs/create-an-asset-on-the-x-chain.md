@@ -1,26 +1,26 @@
-# Create an Asset on the X-Chain
+# Crear un activo en la cadena X
 
-This example creates an asset on the X-Chain and publishes it to the Avalanche platform. The first step in this process is to create an instance of AvalancheJS connected to our Avalanche platform endpoint of choice. In this example we're using the local network `12345` via [Avash](https://github.com/ava-labs/avalanche-docs/tree/bba457018ce99b2a1bdf51e488b136049254e330/build/tools/avash/README.md). The code examples are written in typescript. The script is in full, in both typescript and javascript, after the individual steps.
+Este ejemplo crea un activo en la cadena X y lo publica a la plataforma Avalanche. El primer paso en este proceso es crear una instancia de AvalanchejS conectada a nuestra plataforma de Avalanche. En este ejemplo estamos utilizando la red local `12345` a través de [Avash](https://github.com/ava-labs/avalanche-docs/tree/bba457018ce99b2a1bdf51e488b136049254e330/build/tools/avash/README.md). Los ejemplos de código están escritos en tipos. El guion está completo, tanto en full, como en javascript, después de los pasos individuales.
 
 ```typescript
-import { 
+import {
   Avalanche,
   BinTools,
   BN,
   Buffer
  } from "avalanche"
-import { 
-  AVMAPI, 
-  InitialStates, 
+import {
+  AVMAPI,
+  InitialStates,
   KeyChain,
-  SECPMintOutput, 
-  SECPTransferOutput, 
+  SECPMintOutput,
+  SECPTransferOutput,
   Tx,
   UnsignedTx,
   UTXOSet
 } from "avalanche/dist/apis/avm"
-import { 
-  iAVMUTXOResponse 
+import {
+  iAVMUTXOResponse
 } from "avalanche/dist/apis/avm/interfaces"
 
 const ip: string = "localhost"
@@ -31,9 +31,9 @@ const avalanche: Avalanche = new Avalanche(ip, port, protocol, networkID)
 const xchain: AVMAPI = avalanche.XChain() // Returns a reference to the X-Chain used by AvalancheJS
 ```
 
-## Import the local network's pre-funded address
+## Importar la dirección prefinanciada de la red local
 
-Next we get an instance of bintools, for dealing with binary data, an the X-Chain local keychain. The local network `12345` has a pre-funded address which you can access with the private key `PrivateKey-ewoqjP7PxY4yr3iLTpLisriqt94hdyDFNgchSxGGztUrTXtNN`. Lastly get the pre-funded address as a `Buffer` and as a `string`.
+A continuación obtenemos una instancia de bintools, para tratar con datos binarios, un llavero local de cadena X. La red local `12345` tiene una dirección prefinanciada a la que puede acceder con la clave privada `PrivateKey-ewoqjP7PxY4yr3iLTpLisriqt94hdyDFNgchSxGztUrTXtNNN`. Por último, obtener la dirección prefinanciada como `Buffer` y como `una cadena`.
 
 ```typescript
 const bintools: BinTools = BinTools.getInstance()
@@ -44,9 +44,9 @@ const xAddresses: Buffer[] = xchain.keyChain().getAddresses()
 const xAddressStrings: string[] = xchain.keyChain().getAddressStrings()
 ```
 
-## Prepare for the Mint Output
+## Prepararse para la salida de la menta
 
-Now we need to create an empty array for the `SECPMintOutput` which we're going to create. We also need a `threshold` and `locktime` for the outputs which we're going to create. Each X-Chain transaction can can contain a `memo` field of up to 256 bytes. of arbitrary data.
+Ahora necesitamos crear una matriz vacía para la `SECPMintOutput` que vamos a crear. También necesitamos un `umbral` y `tiempo` de bloqueo para las salidas que vamos a crear. Cada transacción de cadena X puede contener un campo de `memo` de hasta 256 bytes. de datos arbitrarios.
 
 ```typescript
 const outputs: SECPMintOutput[] = []
@@ -55,9 +55,9 @@ const locktime: BN = new BN(0)
 const memo: Buffer = bintools.stringToBuffer("AVM utility method buildCreateAssetTx to create an ANT")
 ```
 
-## Describe the new asset
+## Describir el nuevo activo
 
-The first step in creating a new asset using AvalancheJS is to determine the qualities of the asset. We will give the asset a name, a ticker symbol, as well as a denomination.
+El primer paso en la creación de un nuevo activo utilizando AvalanchejS es determinar las cualidades del activo. Daremos al activo un nombre, un símbolo de ticker, así como una denominación.
 
 ```typescript
 const name: string = "TestToken"
@@ -67,9 +67,9 @@ const symbol: string = "TEST"
 const denomination: number = 3
 ```
 
-## Set up async/await
+## Configurar async/aguardar
 
-The remaining code will be encapsulated by this `main` function so that we can use the `async` / `await` pattern.
+El código restante se encapsulará por esta función `principal` para que podamos utilizar el patrón `async` / `espere.`
 
 ```typescript
 const main = async (): Promise<any> => {
@@ -77,18 +77,18 @@ const main = async (): Promise<any> => {
 main()
 ```
 
-## Fetch the UTXO
+## Coge el UTXO
 
-Pass the `xAddressStrings` to `xchain.getUTXOs` to fetch the UTXO.
+Pase las cadenas `xAddressStrings` a `xchain.getUTXOS` para buscar el UTXO.
 
 ```typescript
   const avmUTXOResponse: iAVMUTXOResponse = await xchain.getUTXOs(xAddressStrings)
   const utxoSet: UTXOSet = avmUTXOResponse.utxos
 ```
 
-## Creating the initial state
+## Creación del estado inicial
 
-We want to mint an asset with 507 units of the asset held by the managed key. This sets up the state that will result from the Create Asset transaction.
+Queremos mintar un activo con 507 unidades del activo que posee la clave administrada. Esto establece el estado que resultará de la transacción de Crear Activos.
 
 ```typescript
 // Create outputs for the asset's initial state
@@ -100,18 +100,18 @@ const initialStates: InitialStates = new InitialStates()
 initialStates.addOutput(secpTransferOutput)
 ```
 
-## Create the Mint Output
+## Crear la salida de la menta
 
-We also want to create a `SECPMintOutput` so that we can mint more of this asset later.
+También queremos crear una `SECPMintOutput` para que podamos hacer menta más de este activo más tarde.
 
 ```typescript
 const secpMintOutput: SECPMintOutput = new SECPMintOutput(xAddresses, locktime, threshold)
 outputs.push(secpMintOutput
 ```
 
-## Creating the signed transaction
+## Creación de la transacción firmada
 
-Now that we know what we want an asset to look like, we create a transaction to send to the network. There is an AVM helper function `buildCreateAssetTx()` which does just that.
+Ahora que sabemos cómo queremos que se vea un activo, creamos una transacción para enviar a la red. Hay una función de ayuda AVM `buildCreateAssetTx()` que hace justo eso.
 
 ```typescript
 const unsignedTx: UnsignedTx = await xchain.buildCreateAssetTx(
@@ -127,11 +127,11 @@ const unsignedTx: UnsignedTx = await xchain.buildCreateAssetTx(
 )
 ```
 
-## Sign and issue the transaction
+## Firma y emite la transacción
 
-Now let's sign the transaction and issue it to the Avalanche network. If successful it will return a [CB58](http://support.avalabs.org/en/articles/4587395-what-is-cb58) serialized string for the TxID.
+Ahora firmemos la transacción y emitamos a la red Avalanche. Si es exitoso, devolverá una cadena serializada [CB58](http://support.avalabs.org/en/articles/4587395-what-is-cb58) para el TxID.
 
-Now that we have a signed transaction ready to send to the network, let’s issue it!
+Ahora que tenemos una transacción firmada lista para enviar a la red, let’s
 
 ```typescript
 const tx: Tx = unsignedTx.sign(xKeychain)
@@ -139,23 +139,23 @@ const id: string = await xchain.issueTx(tx)
 console.log(id)
 ```
 
-## Get the status of the transaction <a id="get-the-status-of-the-transaction"></a>
+## Obtener el estado de la transacción<a id="get-the-status-of-the-transaction"></a>
 
-Now that we sent the transaction to the network, it takes a few seconds to determine if the transaction has gone through. We can get an updated status on the transaction using the TxID through the AVM API.
+Ahora que enviamos la transacción a la red, tarda unos segundos en determinar si la transacción ha pasado. Podemos obtener un estado actualizado en la transacción utilizando el TxID a través de la API AVM.
 
 ```typescript
 // returns one of: "Accepted", "Processing", "Unknown", and "Rejected"
 const status: string = await xchain.getTxStatus(id)
 ```
 
-The statuses can be one of “Accepted”, “Processing”, “Unknown”, and “Rejected”:
+Los estatus, que pueden ser uno de "Aceptados", "Procesamiento", "Desconocido" y "Rechazado":
 
-* “Accepted” indicates that the transaction has been accepted as valid by the network and executed
-* “Processing” indicates that the transaction is being voted on.
-* “Unknown” indicates that node knows nothing about the transaction, indicating the node doesn’t have it
-* “Rejected” indicates the node knows about the transaction, but it conflicted with an accepted transaction
+* "Aceptado" indica que la transacción ha sido aceptada como válida por la red y ejecutada
+* "Procesamiento" indica que la transacción está siendo votada.
+* "Desconocido" indica que el nodo no sabe nada sobre la transacción, indicando que el nodo no lo tiene.
+* "Rechazado" indica que el nodo sabe sobre la transacción, pero se opuso a una transacción aceptada
 
-## Identifying the newly created asset <a id="identifying-the-newly-created-asset"></a>
+## Identificar el activo recién creado<a id="identifying-the-newly-created-asset"></a>
 
-The X-Chain uses the TxID of the transaction which created the asset as the unique identifier for the asset. This unique identifier is henceforth known as the “AssetID” of the asset. When assets are traded around the X-Chain, they always reference the AssetID that they represent.
+La cadena X utiliza el TxID de la transacción que creó el activo como identificador único para el activo. Este identificador único es conocido en adelante como el "AssetID" del activo. Cuando los activos se comercializan alrededor de la cadena X, siempre hacen referencia al AssetID que representan.
 
