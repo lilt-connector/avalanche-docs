@@ -1,20 +1,19 @@
 ---
-description: Learn more about Avalanche's transaction fees
+description: Más información sobre las tasas de transacción de Avalanche
+
 ---
 
-# Transaction Fees
+# Honorarios de transacción
 
-In order to prevent spam, transactions on Avalanche require the payment of a transaction fee. The fee is paid in [AVAX](../../#avalanche-avax-token). **The transaction fee is burned \(destroyed forever\).**
+Para evitar el spam, las transacciones en Avalanche requieren el pago de una tasa de transacción. La tarifa se paga en [AVAX](../../#avalanche-avax-token). **La tarifa de transacción se quema \(destruida para siempre\).**
 
-When you issue a transaction through Avalanche’s API, the transaction fee is automatically deducted from one of the addresses you control.
+Cuando emita una transacción a través de la API de Avalanche, la tarifa de transacción se deduce automáticamente de una de las direcciones que controla.
 
-## Fee Schedule
+## Calendario de tasas
 
-Different types of transactions require payment of a different transaction fee. This table shows the transaction fee schedule:
+Diferentes tipos de transacciones requieren el pago de una tarifa de transacción diferente. Esta tabla muestra el calendario de honorarios de transacción:
 
-{% hint style="warning" %}
-The [C-Chain](./#contract-chain-c-chain) gas price is 225 nAVAX \(225 GWei\). The C-Chain gas limit is 8 \* 10e6 \(8,000,000\).
-{% endhint %}
+{% insinuar style="warning" %} El precio de gas [de cadena C](./#contract-chain-c-chain) es de 225 nAVAX \(225 GWei\). El límite de gas de cadena C es de 8 \* 10e6 \(8.000.000 \). {% endhint %}
 
 ```cpp
 +----------+-------------------+------------------------+
