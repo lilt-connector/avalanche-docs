@@ -1,9 +1,9 @@
 [avalanche](../README.md) › [API-PlatformVM-Constants](api_platformvm_constants.md)
 
-# Module: API-PlatformVM-Constants
+# Módulo de API-PlatformVM-Constants
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [PlatformVMConstants](../classes/api_platformvm_constants.platformvmconstants.md)
