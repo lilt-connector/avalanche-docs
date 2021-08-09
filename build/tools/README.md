@@ -1,14 +1,14 @@
-# Tools
+# Herramientas
 
-[**Avalanche Wallet SDK**](avalanche-wallet-sdk/) is a TypeScript library for managing wallets.
+[**Avalanche Wallet SDK**](avalanche-wallet-sdk/) es una biblioteca TypeScript para la gestión de billeteras.
 
-[**AvalancheJS**](avalanchejs/) is Avalanche's JavaScript library written in TypesScript which enables browser and Node.js clients to make API calls to Avalanche nodes. It provides a wide suite of tools to make asset creation, balance management, and funds transfer easy. AvalancheJS has tools for managing the node itself, accessing the Admin, Keystore, and Platform APIs built into Avalanche nodes.
+[**AvalanchejS**](avalanchejs/) es la biblioteca JavaScript de Avalanche escrita en TypesScript que permite a los clientes de navegador y Node.js hacer llamadas de API a los nodos de Avalanche. Proporciona un amplio conjunto de herramientas para facilitar la creación de activos, la gestión de balance y la transferencia de fondos. AvalanchejS tiene herramientas para gestionar el nodo mismo, acceder a las API de Admin, Keystore y Plataforma incorporadas en nodos de Avalanche.
 
-[**Avash**](avash.md) is a shell client for interacting with Avalanche and can deploy local networks and interact with the nodes in those networks. You can use Avash to rapidly launch test network environments.
+[**Avash**](avash.md) es un cliente de shell para interactuar con Avalanche y puede implementar redes locales e interactuar con los nodos de esas redes. Puede utilizar Avash para lanzar rápidamente entornos de red de pruebas.
 
-[**Public API**](public-api.md): Learn about the public API server you can use to interact with the Avalanche Network.
+[**API pública**](public-api.md): Aprenda sobre el servidor API público que puede utilizar para interactuar con la Red Avalanche.
 
-[**Ortelius API**](ortelius.md) allows clients to interact with Ortelius, which indexes the Avalanche Network.
+[**Ortelius API**](ortelius.md) permite a los clientes interactuar con Ortelius, que indexa la Red Avalanche.
 
-[**Postman collection**](postman-avalanche-collection.md): An AvalancheGo API template and environment collection for [Postman](https://postman.com/), a tool to simplify API development and experimentation. The collection covers all of AvalancheGo APIs, so you can easily issue commands to a node and examine the output in a nicely formatted, readable way.
+Colección [**Postman**](postman-avalanche-collection.md): Una plantilla de API AvalancheGo y colección de entorno para [Postman](https://postman.com/), una herramienta para simplificar el desarrollo y la experimentación de API. La colección cubre todas las API de AvalancheGo para que pueda emitir fácilmente comandos a un nodo y examinar la salida de una manera muy formateada y legible.
 
