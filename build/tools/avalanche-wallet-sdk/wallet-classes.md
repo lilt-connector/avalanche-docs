@@ -1,12 +1,12 @@
-# Wallet Classes
+# Clases de billetera
 
-The core of the SDK are the wallet classes that let users easily create and manage different types of wallets.
+El núcleo del SDK son las clases de billetera que permiten a los usuarios crear y gestionar fácilmente diferentes tipos de billeteras.
 
-## Mnemonic Wallet
+## Cartera Mnemónica
 
-Mnemonic wallets are designed according to BIP44, BIP32 and BIP39 specifications. For each transaction received, the mnemonic wallet generates a new address. This increases privacy but decreases performance for this wallet type.
+Las carteras Mnemónicas están diseñadas de acuerdo con las especificaciones BIP44, BIP32 y BIP39. Para cada transacción recibida, la cartera mnemonic genera una nueva dirección. Esto aumenta la privacidad pero disminuye el rendimiento para este tipo de billetera.
 
-### New wallet
+### Nueva cartera
 
 ```typescript
 import {MnemonicWallet} from '@avalabs/avalanche-wallet-sdk'
@@ -20,7 +20,7 @@ let addressP = myWallet.getAddressP()
 let addressC = myWallet.getAddressC()
 ```
 
-### From an Existing Mnemonic Phrase
+### De una frase Mnemónica existente
 
 ```typescript
 import {MnemonicWallet} from '@avalabs/avalanche-wallet-sdk'
@@ -50,9 +50,9 @@ myWallet.resetHdIndices().then(()=>{
 })
 ```
 
-## Public Mnemonic Wallet
+## Cartera Mnemónica Pública
 
-Similar to the MnemonicWallet class but in read-only mode without access to the seed phrase.
+Similar a la clase MnemonicWallet pero en modo de solo lectura sin acceso a la frase de semillas.
 
 ```typescript
 import {PublicMnemonicWallet} from '@avalabs/avalanche-wallet-sdk'
@@ -63,11 +63,11 @@ const XPUB_EVM = `xpub6CQ5fy7iAochmG1tL2ww2P4BviDRRrcEjG3u1uM6GcyGwzihscWoX9RwiC
 let wallet = new PublicMnemonicWallet(XPUB_AVM, XPUB_EVM);
 ```
 
-## Ledger Wallet
+## Cartera de Ledger
 
-Similar to the MnemonicWallet class. Instead of having access to a seed phrase, it communicates with an external ledger device to sign transactions.
+Similar a la clase MnemonicWallet. En lugar de tener acceso a una frase de semillas, se comunica con un dispositivo de libro mayor externo para firmar transacciones.
 
-The client application needs to provide the appropriate [ledger transport](https://github.com/LedgerHQ/ledgerjs#ledgerhqhw-transport-).
+La aplicación del cliente debe proporcionar el transporte de [libros de libro mayor](https://github.com/LedgerHQ/ledgerjs#ledgerhqhw-transport-).
 
 ```typescript
 import TransportU2F from '@ledgerhq/hw-transport-u2f';
@@ -76,9 +76,9 @@ let transport = await TransportU2F.create();
 let wallet = await LedgerWallet.fromTransport(transport);
 ```
 
-## Singleton Wallet
+## Cartera de Singleton
 
-Singleton wallets are the most performant wallet type because they consist of a single private key, with a single address.
+Las carteras de singleton son el tipo de billetera más performant porque consisten en una sola llave privada, con una sola dirección.
 
 ```typescript
 import { SingletonWallet } from '@avalabs/avalanche-wallet-sdk'
