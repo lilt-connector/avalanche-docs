@@ -1,35 +1,36 @@
 ---
-description: A deep dive into the Avalanche consensus protocol
+description: Una inmersión profunda en el protocolo de consenso de Avalanche
+
 ---
 
-# Avalanche Consensus
+# Consenso de Avalanche
 
-Consensus is the task of getting a group of computers to come to an agreement on a decision. Computers can reach a consensus by following a set of steps called a consensus protocol. Avalanche is a new consensus protocol that is scalable, robust, and decentralized. It has low latency and high throughput. It is energy efficient and does not require special computer hardware. It performs well in adversarial conditions and is resilient to "51% attacks." This document explains the Avalanche consensus protocol. The whitepaper is [here.](https://www.avalabs.org/whitepapers)
+El consenso es la tarea de conseguir que un grupo de computadoras llegue a un acuerdo sobre una decisión. Los ordenadores pueden llegar a un consenso siguiendo un conjunto de medidas llamadas protocolo de consenso. Avalanche es un nuevo protocolo de consenso que es escalable, robusto, y descentralizado. Tiene baja latencia y alta producción. Es eficiente en energía y no requiere hardware especial de computadora. Se realiza bien en condiciones contradictorias y es resiliente a "ataques del 51%". Este documento explica el protocolo de consenso de Avalanche. El blanqueador está [aquí.](https://www.avalabs.org/whitepapers)
 
 ## Video
 
-{% embed url="https://www.youtube.com/watch?v=ZUF9sIu-D\_k" caption="" %}
+{% incrustado url="https://www.youtube.com/watch?v=ZUF9siu-D\_k" subtítulo = "" %}
 
-## Intuition
+## Intusión
 
-First, let's develop some intuition about the protocol. Imagine a room full of people trying to agree on what to get for lunch. Suppose it's a binary choice between pizza and barbecue. Some people might initially prefer pizza while others initially prefer barbecue. Ultimately, though, everyone's goal is to achieve **consensus**.
+Primero, desarrollemos alguna intuición sobre el protocolo. Imagina una habitación llena de gente tratando de acordar lo que hay que conseguir para el almuerzo. Supongamos que es una opción binaria entre pizza y barbacoa. Algunas personas inicialmente prefieren pizza, mientras que otras inicialmente prefieren barbacoa. Sin embargo, en última instancia, el objetivo de todos es lograr **consenso**.
 
-Everyone asks a random subset of the people in the room what their lunch preference is. If more than half say pizza, the person thinks, "Ok, looks like things are leaning toward pizza. I prefer pizza now." That is, they adopt the _preference_ of the majority. Similarly, if a majority say barbecue, the person adopts barbecue as their preference.
+Todos preguntan a un subconjunto aleatorio de la gente en la habitación cuál es su preferencia para el almuerzo. Si más de la mitad dicen pizza, la persona piensa: "Bien, parece que las cosas se inclinan hacia la pizza. Prefiero la pizza ahora." Es decir, adoptan la _preferencia_ de la mayoría. De manera similar, si la mayoría dice barbacoa, la persona adopta la barbacoa como su preferencia.
 
-Everyone repeats this process. Each round, more and more people have the same preference. This is because the more people that prefer an option, the more likely someone is to receive a majority reply and adopt that option as their preference. After enough rounds, they reach consensus and decide on one option, which everyone prefers.
+Todos repiten este proceso. Cada ronda, cada vez más personas tienen la misma preferencia. Esto se debe a que cuanto más personas prefieren una opción, más probable es que alguien reciba una respuesta mayoritaria y adopte esa opción como su preferencia. Después de suficientes rondas, llegan a un consenso y deciden sobre una opción, que todos prefieren.
 
-## Snowball
+## Bola de nieve
 
-The intuition above outlines the Snowball Algorithm, which is a building block of Avalanche consensus. Let's review the Snowball algorithm.
+La intuición anterior describe el algoritmo de bola de nieve, que es un bloque de construcción del consenso de Avalanche. Revisemos el algoritmo de Bola de nieve.
 
-### Parameters
+### Parámetros
 
-* _n_: number of participants
-* _k_ \(sample size\): between 1 and _n_
-* α \(quorum size\): between 1 and _k_
-* β \(decision threshold\): &gt;= 1
+* _n_: número de participantes
+* _k_ \(tamaño de muestra\): entre 1 y _n_
+* α \(tamaño quorum): entre 1 y _k_
+* β \(umbral de decisión\): >= 1
 
-### Algorithm
+### Algoritmo
 
 ```text
 preference := pizza
@@ -48,135 +49,133 @@ while not decided:
     decide(preference)
 ```
 
-### Algorithm Explained
+### Algoritmo Explicado
 
-Everyone has an initial preference for pizza or barbecue. Until someone has _decided_, they query _k_ people \(the sample size\) and ask them what they prefer. If α or more people give the same response, that response is adopted as the new preference. α is called the _quorum size_. If the new preference is the same as the old preference, the `consecutiveSuccesses` counter is incremented. If the new preference is different then the old preference, the `consecutiveSucccesses` counter to `1`. If no response gets a quorum \(an α majority of the same response\) then the `consecutiveSuccesses` counter is set to `0`.
+Todos tienen una preferencia inicial por pizza o barbacoa. Hasta que alguien haya _decidido_, preguntan a la gente _k_ \(el tamaño de la muestra) y les preguntan lo que prefieren. Si α o más personas dan la misma respuesta, esa respuesta se adopta _como_ nueva preferencia. Si la nueva preferencia es la misma que la antigua preferencia, el contador `sucesivos de éxitos` se incrementa. Si la nueva preferencia es diferente entonces la antigua preferencia, las `consecutiveSucccesses` consecutivas contrarias a `1`. Si no hay respuesta obtiene un quórum \(una mayoría α de la misma respuesta\), entonces el contador `sucesivos de` Success se establece en `0`.
 
-Everyone repeats this until they get a quorum for the same response β times in a row. If one person decides pizza, then every other person following the protocol will eventually also decide on pizza.
+Todos repiten esto hasta que obtengan un quórum para la misma respuesta β veces seguidas. Si una persona decide pizza, entonces cada otra persona que siga el protocolo eventualmente también decidirá sobre pizza.
 
-Random changes in preference, caused by random sampling, cause a network preference for one choice, which begets more network preference for that choice until it becomes irreversible and then the nodes can decide.
+Los cambios aleatorios en la preferencia, causados por el muestreo aleatorio, causan una preferencia de red por una elección, que engendra más preferencia de red por esa opción hasta que se vuelva irreversible y luego los nodos pueden decidir.
 
-{% hint style="info" %}
-For a great visualization, check out [this demo](https://tedyin.com/archive/snow-bft-demo/#/snow) from Ava Labs' Co-Founder Ted Yin.
-{% endhint %}
+{% insinuar style="info" %} Para obtener una gran visualización, echa un vistazo a [esta demo](https://tedyin.com/archive/snow-bft-demo/#/snow) del Cofundador de Ava Labs' Ted Yin. {% endhint %}
 
-In our example, there is a binary choice between pizza or barbecue, but Snowball can be adapted to achieve consensus on decisions with many possible choices.
+En nuestro ejemplo, hay una opción binaria entre pizza o barbacoa, pero Snowball puede adaptarse para lograr un consenso sobre decisiones con muchas opciones posibles.
 
-The liveness and safety thresholds are parameterizable. As the quorum size, α, increases, the safety threshold increases, and the liveness threshold decreases. This means the network can tolerate more byzantine \(deliberately incorrect, malicious\) nodes and remain safe, meaning all nodes will eventually agree whether something is accepted or rejected. The liveness threshold is the number of malicious participants that can be tolerated before the protocol is unable to make progress.
+Los umbrales de vida y seguridad son parametrizables. A medida que el tamaño del quórum, α, aumenta, el umbral de seguridad aumenta, y el umbral de la vida disminuye. Esto significa que la red puede tolerar más nodos byzantine \(deliberadamente incorrectos, maliciosos\) y permanecer seguros, lo que significa que todos los nodos eventualmente estarán de acuerdo si algo es aceptado o rechazado. El umbral de la vida es el número de participantes maliciosos que pueden tolerarse antes de que el protocolo no pueda progresar.
 
-These values, which are constants, are quite small on the Avalanche Network. The sample size, _k_, is `20`. So when a node asks a group of nodes their opinion, it only queries `20` nodes out of the whole network. The quorum size, α, is `14`. So if `14` or more nodes give the same response, that response is adopted as the querying node's preference. The decision threshold, β, is `20`. A node decides on choice after receiving `20` consecutive quorum \(α majority\) responses.
+Estos valores, que son constantes, son bastante pequeños en la Red Avalanche. El tamaño de la muestra, _k_, es `20`. Así que cuando un nodo pregunta a un grupo de nodos su opinión, solo pregunta `20` nodos de toda la red. El tamaño del quórum, α, es `14`. Así que si `14` o más nodos dan la misma respuesta, esa respuesta se adopta como preferencia del nodo de consulta. El umbral de decisión, β, es `20`. Un nodo decide sobre la elección después de recibir `20` respuestas consecutivas de quórum \(α mayoría\).
 
-Snowball is very scalable as the number of nodes on the network, _n_, increases. Regardless of the number of participants in the network, the number of consensus messages sent remains the same because in a given query, a node only queries `20` nodes, even if there are thousands of nodes in the network.
+La bola de nieve es muy escalable ya que el número de nodos en la red, _n_, aumenta. Independientemente del número de participantes en la red, el número de mensajes de consenso enviados sigue siendo el mismo porque en una consulta determinada, un nodo solo pregunta `20` nodos, incluso si hay miles de nodos en la red.
 
-## DAGs \(**D**irected **A**cyclic **G**raphs\)
+## DAGs **\(Gráficos****** **Acíclicos** Directos\)
 
-Now let's introduce a data structure called a DAG or Directed Acyclic Graph. A DAG gives a **partial ordering** of decisions. For example, check out the DAG in this diagram:
+Ahora vamos a introducir una estructura de datos llamada DAG o Gráfica Acíclica Directa. Un DAG da un **pedido parcial** de decisiones. Por ejemplo, echa un vistazo a la DAG en este diagrama:
 
-![Basic DAG](../../.gitbook/assets/cons-01-Frame16.png)
+![DAG básico](../../.gitbook/assets/cons-01-Frame16.png)
 
-**a** is before **b**. **b** is before **d**. **c** is before **e**. Transitively, we can say that **a** comes before **e**. However, since this is a partial ordering: for some elements, ordering is not defined. For example, both **b** and **c** are after **a** but there is no notion of whether **b** is before or after **c**.
+**a** es antes **de que** b. **b** se encuentre antes de **que** d. **c c****** sea e. Transitivamente, podemos decir que **un** viene antes **e**. Sin embargo, ya que esto es un orden parcial: para algunos elementos, el pedido no está definido. Por ejemplo, tanto **b** como **c** están después de **una** pero no hay noción de si **b** es antes o después de **c**.
 
-Two additional DAG related concepts are **ancestors** and **descendants**. Ancestors are any nodes in the DAG which you can draw a line up to. For example, the ancestors of **d** are **a**, **b**, and **c**. The ancestors of **e** are **a** and **c**. Descendants are the opposite of ancestors. The descendants of **a** are **b**, **c**, **d**, and **e**. The descendant of **b** is **d**.
+Dos conceptos relacionados con DAG adicionales son **antepasados** y **descendientes**. Los antepasados son cualquier nodos en el DAG a los que puedes dibujar una línea hasta ahora. Por ejemplo, los antepasados de **d** son **a**, **b**, y **c**. Los antepasados **de** **e** son **a** y c. Los descendientes son lo opuesto a los antepasados. Los descendientes de **a** son **b**, **c**, **d**, y **e**. El descendiente de **b** es **d**.
 
-Both Bitcoin and Ethereum, for example, have a linear chain where every block has one parent and one child. Avalanche uses a DAG to store data rather than a linear chain. Each element of the DAG may have multiple parents. The parent-child relationship in the DAG does not imply an application-level dependency.
+Tanto Bitcoin como Ethereum, por ejemplo, tienen una cadena lineal donde cada bloque tiene un padre y un hijo. Avalanche utiliza un DAG para almacenar datos en lugar de una cadena lineal. Cada elemento del DAG puede tener múltiples padres. La relación entre padres e hijos en el DAG no implica una dependencia a nivel de aplicación.
 
-In a consensus protocol, the name of the game is to prevent the inclusion of **conflicting transactions** into the DAG. Conflicts are application-defined. Different applications will have different notions about what it means for two transactions to conflict. For example, in a P2P payment system, transactions that consume the same UTXO \([Unspent Transaction Output](https://en.wikipedia.org/wiki/Unspent_transaction_output)\) would conflict. In Avalanche every transaction belongs to a **conflict set** which consists of conflicting transactions. Only one transaction in a conflict set can be included in the DAG. Each node **prefers** one transaction in a conflict set.
+En un protocolo de consenso, el nombre del juego es prevenir la inclusión de **transacciones conflictivas** en el DAG. Los conflictos están definidos por la aplicación. Diferentes aplicaciones tendrán diferentes nociones sobre lo que significa para dos transacciones en conflicto. Por ejemplo, en un sistema de pago P2P, las transacciones que consumen el mismo UTXO [\(Salida de Transacción no gastada\)](https://en.wikipedia.org/wiki/Unspent_transaction_output) podrían conflicto. En Avalanche todas las transacciones pertenecen a un **conjunto** de conflictos que consiste en transacciones conflictivas. Solo una transacción en un conjunto de conflictos puede ser incluida en el DAG. Cada nodo **prefiere** una transacción en un conjunto de conflictos.
 
-## Working Example
+## Ejemplo de trabajo
 
-Suppose we have an Avalanche network running with the following parameters. The sample size, _k_, is `4`. The quorum size, α, is `3`. The number of consecutive success, β, is `4`.
+Supongamos que tenemos una red Avalanche que funciona con los siguientes parámetros. El tamaño de la muestra, _k_, es `4`. El tamaño del quorum, α, es `3`. El número de éxito consecutivo, β, es `4`.
 
-![Working example 1](../../.gitbook/assets/cons-02-Consensus_Doc_txY.png)
+![Ejemplo de trabajo 1](../../.gitbook/assets/cons-02-Consensus_Doc_txY.png)
 
-A node finds out about a new transaction **Y**. It queries the network based on the above parameters. It queries _k_ \(`4`\) validators and asks, "Do you prefer this transaction?" It gets back responses—three of them say **yes** and one of them says **no**. The quorum size, α, is `3` so there is an α majority \(quorum\) of yes responses. Now we the node updates its DAG.
+Un nodo se entera de una nueva transacción **Y**. Se pregunta la red basada en los parámetros anteriores. Se pregunta _k_ \(`4`\) validadores y pregunta, "¿Prefieres esta transacción?" Se recuperan las respuestas: tres de ellas dicen **que sí** y uno de ellos dice **que no**. El tamaño del quorum, α, es `3` por lo que hay una mayoría α \(quorum\) de respuestas sí. Ahora el nodo actualiza su DAG.
 
-![Working example 2](../../.gitbook/assets/cons-03-Consensus_Doc_txY-6.png)
+![Ejemplo de trabajo 2](../../.gitbook/assets/cons-03-Consensus_Doc_txY-6.png)
 
-If a node gets an α majority response for a transaction then you give that transaction a **chit**, which is a boolean that says, "When I queried the network about this transaction, an α majority said that they preferred it." In our example, transaction Y gets a chit.
+Si un nodo recibe una respuesta de mayoría α para una transacción, entonces usted da a esa transacción un **chit**, que es un booleano que dice: "Cuando pregunté la red sobre esta transacción, una mayoría α dijo que la preferían". En nuestro ejemplo, la transacción Y recibe un chit.
 
-There is also a notion of **confidence**, which is the sum of a vertex's chit plus the sum of its descendants' chits. For example, transaction **V** has a chit. It also has three descendants which have a chit so its confidence is increased from `3` to `4`. Similarly, transactions **W** and **X** both have a chit and they both have a descendant with a chit, so they each have confidence `2`. Transaction Y has confidence `1`.
+Existe también una noción de **confianza**, que es la suma de la cordura de un vértice más la suma de los tramos de sus descendientes. Por ejemplo, la transacción **V** tiene un chit. También tiene tres descendientes que tienen un chit para que su confianza se incremente de `3` a `4`. De manera similar, las transacciones **W** y **X** ambos tienen un chit y ambos tienen un descendiente con un corcho, por lo que cada uno tiene confianza `2`. Transacción Y tiene confianza `1`.
 
-**Consecutive successes** are the same as in Snowball. It's the number of times that a transaction, or a descendant of the transaction, received a successful α majority query response. Previously, transaction V had `3` consecutive successes, itself and its two children, and now it has `4` consecutive successes with transaction Y. Similarly for transactions W and X.
+**Los éxitos consecutivos** son los mismos que en Snowball. Es el número de veces que una transacción, o un descendiente de la transacción, recibió una respuesta exitosa de consulta mayoritaria α. Anteriormente, la transacción V tuvo `3` éxitos consecutivos, en sí misma y sus dos hijos, y ahora tiene `4` éxitos consecutivos con la transacción Y. Del mismo modo para las transacciones W y X.
 
-![Working example 3](../../.gitbook/assets/cons-04-Consensus_Doc_txY-2.png)
+![Ejemplo de trabajo 3](../../.gitbook/assets/cons-04-Consensus_Doc_txY-2.png)
 
-In this example we the acceptance threshold, β, is `4`. Transaction V has `4` consecutive success so it's **accepted**. This node is sure that every other correct node will eventually accept this transaction.
+En este ejemplo el umbral de aceptación, β, es `4`. Transacción V tiene `4` éxito consecutivo así que es **aceptado**. Este nodo está seguro de que todos los demás nodos correctos eventualmente aceptarán esta transacción.
 
-![Working example 4](../../.gitbook/assets/cons-05-Consensus_Doc_txY-3.png)
+![Ejemplo de trabajo 4](../../.gitbook/assets/cons-05-Consensus_Doc_txY-3.png)
 
-Now suppose the node learns about transaction **Y'** which conflicts with transaction Y. It follows the same steps as before and subsamples _k_ \(`4`\) validators and asks if they prefer transaction Y'. In this case, two of them say that they prefer Y' and two of them say that they do not prefer Y'. This time there is no α majority response, and the DAG is updated accordingly.
+Ahora supongamos que el nodo aprende sobre la transacción **Y'** que entra en conflicto con la transacción Y. Sigue los mismos pasos que antes y submuestras _k_ \(`4`\) validadores y pregunta si prefieren la transacción Y'. En este caso, dos de ellos dicen que prefieren Y' y dos de ellos dicen que no prefieren Y'. Esta vez no hay respuesta de la mayoría α y el DAG se actualiza en consecuencia.
 
-![Working example 5](../../.gitbook/assets/cons-06-Consensus_Doc_txY-4.png)
+![Ejemplo de trabajo 5](../../.gitbook/assets/cons-06-Consensus_Doc_txY-4.png)
 
-Transactions Y and Y' are in a conflict set; only one of them can ultimately get accepted. Transaction Y' doesn't get a chit because it didn't get an α majority response. It has confidence `0` because it doesn't have a chit and it doesn't have any descendants with a chit. It has `0` consecutive successes because the previous query didn't get an α majority response. W's consecutive success counter goes from `2` to `0`. Its confidence is still `2`.
+Las transacciones Y y y Y' están en un conjunto de conflictos; solo una de ellas puede finalmente ser aceptada. La transacción Y' no recibe un chit porque no recibió una respuesta de la mayoría α. Tiene confianza `0` porque no tiene un chit y no tiene ningún descendiente con un traje. Tiene `0` éxitos consecutivos porque la consulta anterior no recibió una respuesta de mayoría α. El contador de éxito consecutivo de W va de `2` a `0`. Su confianza sigue siendo `2`.
 
-When a node is asked whether it prefers a given transaction, it replies yes if that transaction has the highest confidence of any transaction in the transaction's conflict set. In this example, transaction Y has confidence `1` and transaction Y' has confidence `0` so the node prefer transaction Y to transaction Y'.
+Cuando se pregunta a un nodo si prefiere una transacción determinada, responde sí si si esa transacción tiene la mayor confianza de cualquier transacción en el conjunto de conflictos de la transacción. En este ejemplo, la transacción Y tiene confianza `1` y la transacción Y' tiene confianza `0` por lo que el nodo prefiere la transacción Y a la transacción Y'.
 
-![Working example 6](../../.gitbook/assets/cons-07-Consensus_Doc_txY-1.png)
+![Ejemplo de trabajo 6](../../.gitbook/assets/cons-07-Consensus_Doc_txY-1.png)
 
-Now the node learns about a new transaction, **Z**, and it does the same thing as before. It queries _k_ nodes, gets back an α majority response, and updates the DAG.
+Ahora el nodo aprende sobre una nueva transacción, **Z**, y hace lo mismo que antes. Pregunta nodos _k_, vuelve a responder a la mayoría α y actualiza el DAG.
 
-![Working example 7](../../.gitbook/assets/cons-08-Consensus_Doc_txY-5.png)
+![Ejemplo de trabajo 7](../../.gitbook/assets/cons-08-Consensus_Doc_txY-5.png)
 
-Transaction Z gets a chit. It also has a confidence of `1` and `1` consecutive success. The processing ancestors are updated, too. No transactions have `4` consecutive successes so no ancestors are accepted.
+Transacción Z recibe un chit. También tiene una confianza de `1` y `1` éxito consecutivo. Los antepasados de procesamiento también se actualizan. Ninguna transacción tiene `4` éxitos consecutivos así que no se aceptan antepasados.
 
-## Vertices
+## Vértices
 
-Everything discussed to this point is how Avalanche is described in [the Avalanche whitepaper](https://assets-global.website-files.com/5d80307810123f5ffbb34d6e/6009805681b416f34dcae012_Avalanche%20Consensus%20Whitepaper.pdf). The implementation of the Avalanche consensus protocol by Ava Labs \(namely in AvalancheGo\) has some optimizations for latency and throughput. The most important optimization is the use of **vertices**. A vertex is like a block in a linear blockchain. It contains the hashes of its parents, and it contains a list of transactions. Vertices allow transactions to be batched and voted on in groups rather than one by one. The DAG is composed of vertices, and the protocol works very similar to how it's described above.
+Todo lo discutido hasta este punto es cómo Avalanche es descrito en [el blanqueador Avalanche](https://assets-global.website-files.com/5d80307810123f5ffbb34d6e/6009805681b416f34dcae012_Avalanche%20Consensus%20Whitepaper.pdf). La implementación del protocolo de consenso de Avalanche por Ava Labs \(es decir, en AvalancheGo\) tiene algunas optimizaciones para la latencia y el rendimiento. La optimización más importante es el uso de **vértices**. Un vértice es como un bloque en una cadena de bloqueo lineal. Contiene los hashes de sus padres, y contiene una lista de transacciones. Los vértices permiten que las transacciones sean loteadas y votadas en grupos en lugar de uno por uno. El DAG está compuesto por vértices, y el protocolo funciona muy similar a cómo se describe arriba.
 
-If a node receives a vote for a vertex, it counts as a vote for all the transactions in a vertex, and votes are applied transitively upward. A vertex is accepted when all the transactions which are in it are accepted. If a vertex contains a rejected transaction then it is rejected and all of its descendants are rejected. If a vertex is rejected, any valid transactions are re-issued into a new vertex which is not the child of a rejected vertex. New vertices are appended to preferred vertices.
+Si un nodo recibe un voto por un vértice, cuenta como voto para todas las transacciones en un vértice, y los votos se aplican transitivamente hacia arriba. Se acepta un vértice cuando todas las transacciones que están en él son aceptadas. Si un vértice contiene una transacción rechazada, entonces se rechaza y todos sus descendientes son rechazados. Si se rechaza un vértice, cualquier transacción válida se vuelve a emitir en un nuevo vértice que no sea el hijo de un vértice rechazado. Nuevos vértices se adjuntan a vértices preferidos.
 
-## Finality
+## Finalidad
 
-Avalanche consensus is probabilistically safe up to a safety threshold. That is, the probability that a correct node accepts a transaction that another correct node rejects can be made arbitrarily low by adjusting system parameters. In Nakamoto consensus protocol \(as used in Bitcoin and Ethereum, for example\), a block may be included in the chain but then be removed and not end up in the canonical chain. This means waiting an hour for transaction settlement. In Avalanche, acceptance/rejection are **final and irreversible** and take a few seconds.
+El consenso de Avalanche es probablemente seguro hasta un umbral de seguridad. Es decir, la probabilidad de que un nodo correcto acepte una transacción que otro nodo correcto rechaza puede ser hecho arbitrariamente bajo mediante el ajuste de los parámetros del sistema. En el protocolo de consenso de Nakamoto \(como se utiliza en Bitcoin y Ethereum, por ejemplo\), un bloque puede ser incluido en la cadena pero luego ser eliminado y no termina en la cadena canónica. Esto significa esperar una hora para la liquidación de las transacciones. En Avalanche, la aceptación/rechazo son **definitivos e irreversibles** y tardan unos segundos.
 
-## Optimizations
+## Optimizaciones
 
-It's not efficient for nodes to just ask, "Do you prefer this vertex?" when they query validators. In Ava Labs' implementation, during a query a node asks, "Given that this vertex exists, which vertices do you prefer?" Instead of getting back a binary yes/no, the node receives the other node's preferred vertex set.
+No es eficiente que los nodos simplemente pregunten: "¿Prefieres este vértice?" cuando pregunten a los validadores. En la implementación de Ava Labs, durante una consulta un nodo pregunta, "Dado que este vértice existe, ¿qué vértices prefieres?" En lugar de volver a un sí/no binario, el nodo recibe el conjunto de vértex preferido del otro nodo.
 
-Nodes don't only query upon hearing of a new transaction. They repeatedly query until there are no virtuous vertices processing. A virtuous vertex is one that has no conflicts.
+Los nodos no solo preguntan al escuchar una nueva transacción. Ellos preguntan repetidamente hasta que no haya vértices virtuosos procesamiento. Un vértice virtuoso es uno que no tiene conflictos.
 
-Nodes don't need to wait until they get all _k_ query responses before registering the outcome of a poll. If no transaction can get an α majority then there's no need to wait for the rest of the responses.
+Los nodos no necesitan esperar hasta que reciban todas las respuestas de la consulta _k_ antes de registrar el resultado de una encuesta. Si ninguna transacción puede obtener una mayoría α entonces no hay necesidad de esperar el resto de las respuestas.
 
-## Validators
+## Validadores
 
-If it were free to become a validator on the Avalanche network, that would be problematic because a malicious actor could start many, many nodes which would get queried very frequently. The malicious actor could make the node act badly and cause a safety or liveness failure. The validators, the nodes which are queried as part of consensus, have influence over the network. They have to pay for that influence with real-world value in order to prevent this kind of ballot stuffing. This idea of using real-world value to buy influence over the network is called Proof of Stake.
+Si fuera libre de convertirse en un validador en la red Avalanche, eso sería problemático porque un actor malicioso podría comenzar muchos, muchos nodos que se cuestionarían con mucha frecuencia. El actor malicioso podría hacer que el nodo actúe mal y causar un fallo de seguridad o de vida. Los validadores, los nodos que se cuestionan como parte del consenso, tienen influencia sobre la red. Tienen que pagar por esa influencia con valor real para evitar este tipo de relleno de votación. Esta idea de utilizar el valor del mundo real para comprar influencia sobre la red se llama Prueba de Stake.
 
-To become a validator, a node must **bond** \(stake\) something valuable \(**AVAX**\). The more AVAX a node bonds, the more often that node is queried by other nodes. When a node samples the network it's not uniformly random. Rather, it's weighted by stake amount. Nodes are incentivized to be validators because they get a reward if, while they validate, they're sufficiently correct and responsive.
+Para convertirse en un validador, un nodo debe **enlazar** \(hoguera\) algo valioso \(**AVAX**\). Cuanto más se une un nodo, más a menudo que el nodo es cuestionado por otros nodos. Cuando un nodo muestra la red, no es uniformemente aleatorio. Más bien, se pondera por la cantidad de la estaca. Los nodos están incentivados a ser validadores porque reciben una recompensa si, mientras validan, son lo suficientemente correctos y responsivos.
 
-Avalanche doesn't have slashing. If a node doesn't behave well while validating, such as giving incorrect responses or perhaps not responding at all, its stake is still returned in whole, but with no reward. As long as a sufficient portion of the bonded AVAX is held by correct nodes, then the network is safe, and is live for virtuous transactions.
+Avalanche no tiene desplomes. Si un nodo no se comporta bien mientras validada, como dar respuestas incorrectas o quizás no responder en absoluto, su juego todavía se devuelve en su conjunto, pero sin recompensa. Mientras una porción suficiente de la AVAX unida sea sostenida por nodos correctos, entonces la red es segura, y vive para transacciones virtuosas.
 
-## Big Ideas
+## Grandes ideas
 
-Two big ideas in Avalanche are **subsampling** and **transitive voting**. Subsampling has low message overhead. It doesn't matter if there are twenty validators or two thousand validators; the number of consensus messages a node sends during a query remains constant.
+Dos grandes ideas en Avalanche son **submuestreo** y **votación transitiva**. El submuestreo tiene un mensaje bajo overhead. No importa si hay veinte validadores o dos mil validadores; el número de mensajes de consenso que un nodo envía durante una consulta sigue siendo constante.
 
-![Working example 8](../../.gitbook/assets/cons-09-Consensus_Doc_txY-7.png)
+![Ejemplo de trabajo 8](../../.gitbook/assets/cons-09-Consensus_Doc_txY-7.png)
 
-Transitive voting, where a vote for a vertex is a vote for all it's ancestors, helps with transaction throughput. Each vote is actually many votes in one. For example, in the above diagram, if a node gets a vote for vertex **D**, that implies a vote for all it's ancestors; a vote for **D** is also a vote for **A**, **B**, and **C**.
+La votación transitoria, donde el voto por un vértice es un voto por todos sus antepasados, ayuda con el rendimiento de las transacciones. Cada voto es en realidad muchos votos en uno. Por ejemplo, en el diagrama anterior, si un nodo obtiene un voto por el vértice **D**, eso implica un voto por todos sus antepasados; un voto por **D** es también un voto por **A**, **B** y **C**.
 
-## Loose Ends
+## Terminos sueltos
 
-Transactions are created by users which call an API on the [AvalancheGo](https://github.com/ava-labs/avalanchego) full node or create them using a library such as [AvalancheJS](https://github.com/ava-labs/avalanchejs). Vertices are created when nodes batch incoming transactions together or when accepted transactions from a rejected vertex get reissued and added to the DAG. A vertex's parents are chosen from the virtuous frontier, which are the nodes at the tip of the DAG with no conflicts. It's important to build on virtuous vertices because if we built on non-virtuous vertices there would be a higher chance that the node would get rejected which means there's a higher chance it's ancestors get rejected and we would make less progress.
+Las transacciones son creadas por usuarios que llaman una API en el nodo completo de [AvalancheGo](https://github.com/ava-labs/avalanchego) o o las crean utilizando una biblioteca como [AvalancheJS](https://github.com/ava-labs/avalanchejs). Se crean vértices cuando los nodos de las transacciones entrantes por lotes juntos o cuando las transacciones aceptadas de un vértice rechazado se reexpiden y se añaden al DAG. Los padres de un vértice son elegidos de la frontera virtuosa, que son los nodos en la punta del DAG sin conflictos. Es importante construir sobre vértices virtuosos porque si construimos sobre vértices no virtuosos habría una mayor posibilidad de que el nodo fuera rechazado lo que significa que hay una mayor posibilidad de que sus antepasados sean rechazados y nosotros haríamos menos progresos.
 
-## Other Observations
+## Otras observaciones
 
-Conflicting transactions are not guaranteed to be live. That's not really a problem because if you want your transaction to be live then you should not issue a conflicting transaction.
+No se garantiza que las transacciones contradictorias sean vividas. Eso no es realmente un problema porque si quieres que tu transacción sea en vivo, entonces no deberías emitir una transacción en conflicto.
 
-Avalanche works for linear chains too. The protocol is largely the same as above, but each vertex has only have one parent. This gives a total ordering of vertices. This is useful for certain applications where one needs to know if a transaction came before another transaction, such as with smart contracts. Snowman is the name of Ava Labs' implementation of the Avalanche consensus protocol for linear chains.
+Avalanche también trabaja para cadenas lineales. El protocolo es en gran medida el mismo que antes, pero cada vértice tiene solo un padre. Esto da un pedido total de vértices. Esto es útil para ciertas aplicaciones donde se necesita saber si una transacción vino antes de otra transacción, como con contratos inteligentes. Snowman es el nombre de la implementación de Ava Labs del protocolo de consenso de Avalanche para cadenas lineales.
 
-If there are no undecided transactions, the Avalanche consensus protocol _quiesces_. That is, it does nothing if there is no work to be done. Avalanche is more sustainable than Proof-of-work where nodes need to constantly do work.
+Si no hay transacciones indecisos, el protocolo de consenso de Avalanche _quiesces_. Es decir, no hace nada si no hay trabajo que hacer. Avalanche es más sostenible que la prueba de trabajo donde los nodos necesitan hacer trabajo constantemente.
 
-Avalanche has no leader. Any node can propose a transaction and any node that has staked AVAX can vote on every transaction, which makes the network more robust and decentralized.
+Avalanche no tiene líder. Cualquier nodo puede proponer una transacción y cualquier nodo que haya tocado AVAX puede votar sobre cada transacción, lo que hace que la red sea más robusta y descentralizada.
 
-## Why Do We Care?
+## ¿Por Qué Nos Importa?
 
-Avalanche is a general consensus engine. It doesn't matter what type of application is put on top of it. The protocol allows the decoupling of the application layer from the consensus layer. If you're building a Dapp on Avalanche then you just need to define a few things, like how conflicts are defined and what is in a transaction. You don't need to worry about how nodes come to an agreement. The consensus protocol is a black box that put something into it and it comes back as accepted or rejected.
+Avalanche es un motor de consenso general. No importa qué tipo de aplicación se ponga en la parte superior de ella, el protocolo permite el desacoplamiento de la capa de aplicación de la capa de consenso. Si estás construyendo una Dapp en Avalanche, solo tienes que definir algunas cosas, como cómo se definen los conflictos y qué hay en una transacción. No tienes que preocuparte por cómo llegan los nodos a un acuerdo. El protocolo de consenso es una caja negra que pone algo en él y vuelve como aceptado o rechazado.
 
-Avalanche can be used for all kinds of applications, not just P2P payment networks. Avalanche's Primary Network has an instance of the Ethereum Virtual Machine, which is backward compatible with existing Ethereum Dapps and dev tooling. The Ethereum consensus protocol has been replaced with Avalanche consensus to enable lower block latency and higher throughput.
+Avalanche se puede utilizar para todo tipo de aplicaciones, no solo redes de pago P2P. La Red Primaria de Avalanche tiene una instancia de la Máquina Virtual Ethereum, que es compatible con las actuales Dapps de Ethereum y dev tooling. El protocolo de consenso de Ethereum ha sido sustituido por consenso de Avalanche para permitir una latencia de bloques inferiores y un mayor rendimiento.
 
-Avalanche is very performant. It can process thousands of transactions per second with one to two second acceptance latency.
+Avalanche es muy performante. Puede procesar miles de transacciones por segundo con una o dos segundos de aceptación latencia.
 
-## Summary
+## Resumen
 
-Avalanche consensus is a radical breakthrough in distributed systems. It represents as large a leap forward as the classical and Nakamoto consensus protocols that came before it. Now that you have a better understanding of how it works, check out other [documentation](https://docs.avax.network) for building game-changing Dapps and financial instruments on Avalanche.
+El consenso de Avalanche es un avance radical en los sistemas distribuidos. Representa un salto hacia adelante como los protocolos de consenso clásico y Nakamoto que se presentaron ante él.Ahora que usted tiene una mejor comprensión de cómo funciona, echa un vistazo a otra [documentación](https://docs.avax.network) para construir Dapps e instrumentos financieros cambiantes de juego en Avalanche.
 
