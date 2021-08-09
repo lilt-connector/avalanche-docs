@@ -1,74 +1,74 @@
 ---
 description: >-
-  Build on Avalanche. Build without limits. Developers who build on Avalanche
-  can easily create powerful, reliable, and secure applications.
+  Construye sobre Avalanche. Construir sin límites. Los desarrolladores que se basan en Avalanche pueden crear aplicaciones poderosas, confiables y seguras.
+
 ---
 
-# Developer Documentation
+# Documentación para desarrolladores
 
 ## Avalanche
 
-[Avalanche](https://avax.network) is an open-source platform for launching [decentralized applications](https://support.avalabs.org/en/articles/4587146-what-is-a-decentralized-application-dapp) and enterprise [blockchain](http://support.avalabs.org/en/articles/4064677-what-is-a-blockchain) deployments in one interoperable, highly scalable ecosystem. Avalanche is the first decentralized smart contracts platform built for the scale of global finance, with near-instant transaction finality. Ethereum developers can quickly build on Avalanche as Solidity works out-of-the-box.
+[Avalanche](https://avax.network) es una plataforma de código abierto para lanzar [aplicaciones descentralizadas](https://support.avalabs.org/en/articles/4587146-what-is-a-decentralized-application-dapp) y despliegues de [blockchain](http://support.avalabs.org/en/articles/4064677-what-is-a-blockchain) empresarial en un ecosistema interoperable y altamente escalable. Avalanche es la primera plataforma descentralizada de contratos inteligentes construida para la escala de finanzas mundiales, con la finalización de transacciones casi instantáneas. Los desarrolladores de Ethereum pueden construir rápidamente en Avalanche mientras Solidity funciona fuera de la caja.
 
-A key difference between Avalanche and other decentralized networks is the consensus protocol. Over time, people have come to a false understanding that blockchains have to be slow and not scalable. The Avalanche protocol employs a novel approach to consensus to achieve its strong safety guarantees, quick finality, and high-throughput without compromising decentralization.
+Una diferencia clave entre Avalanche y otras redes descentralizadas es el protocolo de consenso. Con el tiempo, la gente ha llegado a una falsa comprensión de que las cadenas de bloqueo deben ser lentas y no escalables. El protocolo Avalanche emplea un nuevo enfoque de consenso para lograr sus fuertes garantías de seguridad, su rápida finalización y su alto rendimiento sin comprometer la descentralización.
 
 ## AVAX
 
-AVAX is the native token of Avalanche. It’s a hard-capped, scarce asset that is used to pay for fees, secure the platform through staking, and provide a basic unit of account between the multiple subnets created on Avalanche. `1 nAVAX` is equal to `0.000000001 AVAX`.
+AVAX es la muestra nativa de Avalanche. Es un activo difícil y escaso, que se utiliza para pagar por las tasas, asegurar la plataforma a través de la acumulación y proporcionar una unidad de cuenta básica entre las múltiples subredes creadas en Avalanche. `1 nAVAX` es igual a `0.001 AVAX`.
 
-## Avalanche Consensus Protocol
+## Protocolo de Consenso de Avalanche
 
-![Consensus Comparison](.gitbook/assets/image%20%2810%29%20%281%29%20%281%29%20%281%29.png)
+![Comparación de Consenso](.gitbook/assets/image%20%2810%29%20%281%29%20%281%29%20%281%29.png)
 
-Protocols in the Avalanche family operate through repeated sub-sampled voting. When a [validator](http://support.avalabs.org/en/articles/4064704-what-is-a-blockchain-validator) is determining whether a [transaction](http://support.avalabs.org/en/articles/4587384-what-is-a-transaction) should be accepted or rejected, it asks a small, random subset of validators whether they think the transaction should be accepted or rejected. If the queried validator thinks the transaction is invalid, has already rejected the transaction, or prefers a conflicting transaction, it replies that it thinks the transaction should be rejected. Otherwise, it replies that it thinks the transaction should be accepted.
+Los Protocolos de la familia Avalanche operan mediante votación repetida de submuestreo. Cuando un [validador](http://support.avalabs.org/en/articles/4064704-what-is-a-blockchain-validator) está determinando si una transacción debe ser aceptada o rechazada, [pregunta](http://support.avalabs.org/en/articles/4587384-what-is-a-transaction) a un pequeño subconjunto aleatorio de validadores si piensan que la transacción debe ser aceptada o rechazada. Si el validador consultado considera que la transacción es inválida, ya ha rechazado la transacción o prefiere una transacción conflictiva, responde a que cree que la transacción debe ser rechazada. De lo contrario, responde que cree que la transacción debe ser aceptada.
 
-If a sufficiently large portion \(_alpha_ $$α$$\) of the validators sampled reply that they think the transaction should be accepted, the validator prefers to accept the transaction. That is, when it is queried about the transaction in the future, it will reply that it thinks the transaction should be accepted. Similarly, the validator will prefer to reject the transaction if a sufficiently large portion of the validators replies that they think the transaction should be rejected.
+Si una porción suficientemente grande _\(alfa_ $$α$\) de los validadores muestra la respuesta que piensan que la transacción debe ser aceptada, el validador prefiere aceptar la transacción. Es decir, cuando se pregunte sobre la transacción en el futuro, responderá que cree que la transacción debe ser aceptada. De igual manera, el validador preferirá rechazar la transacción si una parte suficientemente grande de los validadores responde que creen que la transacción debe ser rechazada.
 
-The validator repeats this sampling process until _alpha_ of the validators queried reply the same way \(accept or reject\) for _beta_ $$β$$ consecutive rounds.
+El validador repite este proceso de muestreo hasta que _alfa_ de los validadores se preguntó respuesta de la misma manera \(aceptar o rechazar\) para _beta_ $β$$ rondas consecutivas.
 
-In the common case when a transaction has no conflicts, finalization happens very quickly. When conflicts exist, honest validators quickly cluster around conflicting transactions, entering a positive feedback loop until all correct validators prefer that transaction. This leads to the acceptance of non-conflicting transactions and the rejection of conflicting transactions.
+En el caso común cuando una transacción no tiene conflictos, la finalización ocurre muy rápidamente. Cuando existen conflictos, los validadores honestos rápidamente se agrupan alrededor de transacciones conflictivas, introduciendo un bucle de retroalimentación positivo hasta que todos los validadores correctos prefieren esa transacción. Esto conduce a la aceptación de transacciones no conflictivas y al rechazo de transacciones conflictivas.
 
-![How Avalanche Consensus Works](.gitbook/assets/howavalancheconsensusworks.png)
+![Cómo funciona el Consenso de Avalanche](.gitbook/assets/howavalancheconsensusworks.png)
 
-It is guaranteed \(with high probability based on system parameters\) that if any honest validator accepts or rejects a transaction, all honest validators will accept or reject that transaction.
+Se garantiza \(con alta probabilidad basada en parámetros del sistema) que si cualquier validador honesto acepta o rechaza una transacción, todos los validadores honestos aceptarán o rechazarán esa transacción.
 
-Learn more technical components of the Avalanche consensus protocol by reading the [whitepaper](https://arxiv.org/pdf/1906.08936.pdf).
+Más información componentes técnicos del protocolo de consenso de Avalanche leyendo el [whitepaper](https://arxiv.org/pdf/1906.08936.pdf).
 
-## Snowman Consensus Protocol
+## Protocolo de Consenso de Snowman
 
-Snowman is a chain-optimized consensus protocol–high-throughput, totally-ordered, and great for smart contracts. Snowman is powered by the [Avalanche consensus protocol](./#avalanche-consensus-protocol). Both [P-Chain](learn/platform-overview/#platform-chain-p-chain) and [C-Chain](learn/platform-overview/#contract-chain-c-chain) implement the Snowman consensus protocol.
+Snowman es un protocolo de consenso optimizado por cadena, de alto rendimiento, totalmente ordenado y ideal para contratos inteligentes. El Snowman está impulsado por el [protocolo de consenso de Avalanche](./#avalanche-consensus-protocol). Tanto [la cadena P](learn/platform-overview/#platform-chain-p-chain) como la cadena [C](learn/platform-overview/#contract-chain-c-chain) implementan el protocolo de consenso de Snowman.
 
-## Key Features
+## Características principales
 
-### Speed
+### Velocidad de transmisión
 
-Uses a novel consensus protocol, developed by a team of Cornell computer scientists, and is able to permanently confirm transactions in under 1 second.
+Utiliza un nuevo protocolo de consenso, desarrollado por un equipo de científicos de la informática de Cornell, y es capaz de confirmar permanentemente las transacciones en menos de 1 segundo.
 
-### Scalability
+### Escalabilidad
 
-Capable of 4,500 transactions per second–an order of magnitude greater than existing blockchains.
+Capaz de 4.500 transacciones por segundo, un orden de magnitud mayor que las cadenas de bloqueo existentes.
 
-### Security
+### Seguridad
 
-Ensures stronger security guarantees well-above the 51% standard of other networks.
+Garantiza una seguridad más fuerte que garantiza muy por encima del estándar del 51% de otras redes.
 
-### Flexibility
+### Flexibilidad
 
-Easily create custom blockchains and decentralized apps that contain almost any arbitrary logic.
+Cree fácilmente blockchains personalizados y aplicaciones descentralizadas que contienen casi cualquier lógica arbitraria.
 
-### Sustainability
+### Sostenibilidad
 
-Uses energy-efficient proof-of-stake consensus algorithm rather than proof-of-work.
+Utiliza un algoritmo de consenso de prueba de interés eficiente en energía en lugar de prueba de trabajo.
 
-### Smart Contract Support
+### Soporte de contrato inteligente
 
-Supports the creation of Solidity smart contracts and your favorite Ethereum tools like Remix, Metamask, Truffle, and more.
+Soporta la creación de contratos inteligentes de Solidez y tus herramientas favoritas de Ethereum como Remix, Metamask, Trufa y más.
 
-### Private and Public Blockchains
+### Bloquees privados y públicos
 
-Create your own public or private blockchains.
+Crea tus propias cadenas de bloqueo públicas o privadas.
 
-### Designed for Finance
+### Diseñado para Finanzas
 
-Native support for easily creating and trading digital smart assets with complex, custom rulesets.
+Soporte nativo para crear y comerciar fácilmente activos inteligentes digitales con reglas complejas y personalizadas.
 
