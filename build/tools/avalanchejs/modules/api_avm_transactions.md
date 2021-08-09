@@ -1,47 +1,35 @@
-[avalanche](../README.md) › [API-AVM-Transactions](api_avm_transactions.md)
+[avalanche](../README.md) › Transacciones [API-AVM-Transactions](api_avm_transactions.md)
 
-# Module: API-AVM-Transactions
+# Módulo de transacciones: API-AVM-Transactions
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
-* [Tx](../classes/api_avm_transactions.tx.md)
-* [UnsignedTx](../classes/api_avm_transactions.unsignedtx.md)
+* [Txx](../classes/api_avm_transactions.tx.md)
+* [Sin UnsignedTx](../classes/api_avm_transactions.unsignedtx.md)
 
-### Variables
-
-* [serializer](api_avm_transactions.md#const-serializer)
-
-### Functions
+### Funciones de las Naciones Unidas
 
 * [SelectTxClass](api_avm_transactions.md#const-selecttxclass)
 
-## Variables
+## Funciones de las Naciones Unidas
 
-### `Const` serializer
+### `Consta` SelectTxClass
 
-• **serializer**: *[Serialization](../classes/utils_serialization.serialization.md)‹›* = Serialization.getInstance()
+- **SelectTxClass**(`txtype`: número, ...`args`: []any): *[BaseTx](../classes/api_avm_basetx.basetx.md)*
 
-*Defined in [src/apis/avm/tx.ts:25](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/avm/tx.ts#L25)*
+*Definido en [src/apis/avm/tx.ts:33](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/avm/tx.ts#L33)*
 
-## Functions
+Toma un buffer que representa la salida y devuelve la instancia de [BaseTx](../classes/api_platformvm_basetx.basetx.md) adecuada.
 
-### `Const` SelectTxClass
+**Parámetros:**
 
-▸ **SelectTxClass**(`txtype`: number, ...`args`: Array‹any›): *[BaseTx](../classes/api_avm_basetx.basetx.md)*
-
-*Defined in [src/apis/avm/tx.ts:34](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/avm/tx.ts#L34)*
-
-Takes a buffer representing the output and returns the proper [BaseTx](../classes/api_avm_basetx.basetx.md) instance.
-
-**Parameters:**
-
-Name | Type | Description |
+| Nombre del nombre de la empresa | Tipo de cambio | Descripción |
 ------ | ------ | ------ |
-`txtype` | number | The id of the transaction type  |
-`...args` | Array‹any› | - |
+| `txtype` | Número de números | El id del tipo de transacción |
+| `..args` | cualquier otra cosa que no sea[] | - |
 
 **Returns:** *[BaseTx](../classes/api_avm_basetx.basetx.md)*
 
-An instance of an [BaseTx](../classes/api_avm_basetx.basetx.md)-extended class.
+Una instancia de una clase extendida por [BaseTx](../classes/api_platformvm_basetx.basetx.md)-extended
