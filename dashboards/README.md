@@ -1,21 +1,21 @@
-# Grafana dashboards
+# Tableros de Grafana
 
-These are pre-configured Grafana dashboards that work with the setup as shown in [Setting up node monitoring](../build/tutorials/nodes-and-staking/setting-up-node-monitoring.md).
+Estos son tableros de Grafana preconfigurados que funcionan con la configuración como se muestra en [Configurar la monitorización de nodos](../build/tutorials/nodes-and-staking/setting-up-node-monitoring.md).
 
-To import preconfigured dashboards:
+Para importar tableros preconfigurados:
 
-* Open Grafana’s web interface
-* Click `+` on the left toolbar
-* Select `Import JSON` and then upload the JSON file or paste the contents into `Import via panel json` area
-* Select `Prometheus` as Data Source
+* Abra la interfaz web de Grafana’s
+* Haga clic en `+` en la barra de herramientas izquierda
+* Seleccione `Importar JSON` y luego suba el archivo JSON o pegue el contenido en `Importar a través del área json del panel`
+* Seleccione `Prometheus` como fuente de datos
 
-| Link | Description |
+| Enlace con el enlace | Descripción |
 | :--- | :--- |
-| [Network](network.json) | Dashboard with networking information |
-| [Database](database.json) | Dashboard with in-depth info about the database operations |
-| [Machine](machine.json) | Information about the computer node is running on |
-| [X-Chain](x_chain.json) | Dashboard showing in-depth info about X-Chain operation |
-| [P-Chain](p_chain.json) | Dashboard showing in-depth info about P-Chain operation |
-| [C-Chain](c_chain.json) | Dashboard showing in-depth info about C-Chain operation |
-| [Main Dashboard](main.json) | Main dashboard, showing most important info, with links to other dashboards, useful as a starting point |
+| [Red de red de redes de redes](network.json) | Tablero con información de red |
+| [Base de datos](database.json) | Tablero con información detallada sobre las operaciones de la base de datos |
+| [Máquina de fabricación](machine.json) | Información sobre el nodo de la computadora se está ejecutando |
+| [Cadena X-X-](x_chain.json) | Tablero que muestra información en profundidad sobre la operación de la cadena X- |
+| [Cadena P-Chain](p_chain.json) | Tablero que muestra información en profundidad sobre la operación de la cadena P- |
+| [C-Chain](c_chain.json) | Tablero que muestra información en profundidad sobre la operación de la cadena C |
+| [Tablero principal](main.json) | Tablero principal, mostrando información más importante, con enlaces a otros tableros, útil como punto de partida |
 
