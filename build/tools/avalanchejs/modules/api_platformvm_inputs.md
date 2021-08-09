@@ -1,50 +1,50 @@
 [avalanche](../README.md) › [API-PlatformVM-Inputs](api_platformvm_inputs.md)
 
-# Module: API-PlatformVM-Inputs
+# Módulo de entrada: API-PlatformVM-Inputs
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [AmountInput](../classes/api_platformvm_inputs.amountinput.md)
-* [ParseableInput](../classes/api_platformvm_inputs.parseableinput.md)
+* [Entrada ParseableInput](../classes/api_platformvm_inputs.parseableinput.md)
 * [SECPTransferInput](../classes/api_platformvm_inputs.secptransferinput.md)
 * [StakeableLockIn](../classes/api_platformvm_inputs.stakeablelockin.md)
-* [TransferableInput](../classes/api_platformvm_inputs.transferableinput.md)
+* [Entrada transferible](../classes/api_platformvm_inputs.transferableinput.md)
 
 ### Variables
 
-* [serializer](api_platformvm_inputs.md#const-serializer)
+* [serialización](api_platformvm_inputs.md#const-serialization)
 
-### Functions
+### Funciones de las Naciones Unidas
 
 * [SelectInputClass](api_platformvm_inputs.md#const-selectinputclass)
 
 ## Variables
 
-### `Const` serializer
+### `Consta` serialización
 
-• **serializer**: *[Serialization](../classes/utils_serialization.serialization.md)‹›* = Serialization.getInstance()
+• **Serialización**: Serialización = *[Serialization](../classes/utils_serialization.serialization.md)*.getInstance()
 
-*Defined in [src/apis/platformvm/inputs.ts:17](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/platformvm/inputs.ts#L17)*
+*Definido en [src/apis/platformvm/inputs.ts:17](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/platformvm/inputs.ts#L17)*
 
-## Functions
+## Funciones de las Naciones Unidas
 
 ### `Const` SelectInputClass
 
-▸ **SelectInputClass**(`inputid`: number, ...`args`: Array‹any›): *[Input](../classes/common_inputs.input.md)*
+- **SelectInputClass(inputid:**`` número, ..`args`: []SelectInputClass(inputid: *[Entrada](../classes/common_inputs.input.md)*
 
-*Defined in [src/apis/platformvm/inputs.ts:26](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/platformvm/inputs.ts#L26)*
+*Definido en [src/apis/platformvm/inputs.ts:26](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/platformvm/inputs.ts#L26)*
 
-Takes a buffer representing the output and returns the proper [Input](../classes/common_inputs.input.md) instance.
+Toma un buffer que representa la salida y devuelve la instancia [de entrada](../classes/common_inputs.input.md) adecuada.
 
-**Parameters:**
+**Parámetros:**
 
-Name | Type | Description |
+| Nombre del nombre de la empresa | Tipo de cambio | Descripción |
 ------ | ------ | ------ |
-`inputid` | number | A number representing the inputID parsed prior to the bytes passed in  |
-`...args` | Array‹any› | - |
+| `inputid` | Número de números | Un número que representa el inputID analizado antes de los bytes pasados |
+| `..args` | cualquier otra cosa que no sea[] | - |
 
-**Returns:** *[Input](../classes/common_inputs.input.md)*
+**Retornos:** *[Entrada](../classes/common_inputs.input.md)*
 
-An instance of an [Input](../classes/common_inputs.input.md)-extended class.
+Una instancia de una clase [extendida por](../classes/common_inputs.input.md) entrada.
