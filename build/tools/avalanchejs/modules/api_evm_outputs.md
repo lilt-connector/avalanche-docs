@@ -1,49 +1,49 @@
-[avalanche](../README.md) › [API-EVM-Outputs](api_evm_outputs.md)
+[avalanche](../README.md) › Salida [API-EVM-Outputs](api_evm_outputs.md)
 
-# Module: API-EVM-Outputs
+# Módulo de entrada: API-EVM-Outputs
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
-* [AmountOutput](../classes/api_evm_outputs.amountoutput.md)
+* [Producto de cantidad](../classes/api_evm_outputs.amountoutput.md)
 * [EVMOutput](../classes/api_evm_outputs.evmoutput.md)
 * [SECPTransferOutput](../classes/api_evm_outputs.secptransferoutput.md)
-* [TransferableOutput](../classes/api_evm_outputs.transferableoutput.md)
+* [Producto transferible](../classes/api_evm_outputs.transferableoutput.md)
 
 ### Variables
 
 * [bintools](api_evm_outputs.md#const-bintools)
 
-### Functions
+### Funciones de las Naciones Unidas
 
 * [SelectOutputClass](api_evm_outputs.md#const-selectoutputclass)
 
 ## Variables
 
-### `Const` bintools
+### `Consta` de bintools
 
 • **bintools**: *[BinTools](../classes/utils_bintools.bintools.md)* = BinTools.getInstance()
 
-*Defined in [src/apis/evm/outputs.ts:14](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/evm/outputs.ts#L14)*
+*Definido en [src/apis/evm/outputs.ts:14](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/evm/outputs.ts#L14)*
 
-## Functions
+## Funciones de las Naciones Unidas
 
 ### `Const` SelectOutputClass
 
-▸ **SelectOutputClass**(`outputID`: number, ...`args`: any[]): *[Output](../classes/common_output.output.md)*
+- **SelectOutputClass**(`outputID`: número, ..`args`: []cualquiera): *[Salida](../classes/common_output.output.md)*
 
-*Defined in [src/apis/evm/outputs.ts:23](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/evm/outputs.ts#L23)*
+*Definido en [src/apis/evm/outputs.ts:23](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/evm/outputs.ts#L23)*
 
-Takes a buffer representing the output and returns the proper Output instance.
+Toma un buffer que representa la salida y devuelve la instancia de salida adecuada.
 
-**Parameters:**
+**Parámetros:**
 
-Name | Type | Description |
+| Nombre del nombre de la empresa | Tipo de cambio | Descripción |
 ------ | ------ | ------ |
-`outputID` | number | A number representing the outputID parsed prior to the bytes passed in  |
-`...args` | any[] | - |
+| `outputID` | Número de números | Un número que representa el producto analizado antes de los bytes pasados |
+| `..args` | cualquier otra cosa que no sea[] | - |
 
-**Returns:** *[Output](../classes/common_output.output.md)*
+**Retornos:** *[Salida](../classes/common_output.output.md)*
 
-An instance of an [Output](../classes/common_output.output.md)-extended class.
+Una instancia de una clase [extendida por la](src_common.md#output) salida.
