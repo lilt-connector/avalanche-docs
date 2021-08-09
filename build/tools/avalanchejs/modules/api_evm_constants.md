@@ -1,9 +1,9 @@
-[avalanche](../README.md) › [API-EVM-Constants](api_evm_constants.md)
+[avalancha](../README.md) › [API-EVM-Constants](api_evm_constants.md)
 
-# Module: API-EVM-Constants
+# Módulo API-EVM-Constants
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [EVMConstants](../classes/api_evm_constants.evmconstants.md)
