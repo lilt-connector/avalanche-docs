@@ -1,10 +1,10 @@
-[avalanche](../README.md) › [API-PlatformVM-UTXOs](api_platformvm_utxos.md)
+[avalanche](../README.md) › [API-PlatformVM-UTXOS](api_platformvm_utxos.md)
 
-# Module: API-PlatformVM-UTXOs
+# Módulo de API-PlatformVM-UTXOS
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [AssetAmountDestination](../classes/api_platformvm_utxos.assetamountdestination.md)
 * [UTXO](../classes/api_platformvm_utxos.utxo.md)
@@ -12,12 +12,12 @@
 
 ### Variables
 
-* [serializer](api_platformvm_utxos.md#const-serializer)
+* [serialización](api_platformvm_utxos.md#const-serialization)
 
 ## Variables
 
-### `Const` serializer
+### `Consta` serialización
 
-• **serializer**: *[Serialization](../classes/utils_serialization.serialization.md)‹›* = Serialization.getInstance()
+• **Serialización**: Serialización = *[Serialization](../classes/utils_serialization.serialization.md)*.getInstance()
 
-*Defined in [src/apis/platformvm/utxos.ts:34](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/platformvm/utxos.ts#L34)*
+*Definido en [src/apis/platformvm/utxos.ts:34](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/platformvm/utxos.ts#L34)*
