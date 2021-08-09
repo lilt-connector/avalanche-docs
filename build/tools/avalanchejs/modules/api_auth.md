@@ -1,9 +1,9 @@
-[avalanche](../README.md) › [API-Auth](api_auth.md)
+[avalancha](../README.md) › [API-Auth](api_auth.md)
 
-# Module: API-Auth
+# Módulo de API-Auth
 
-## Index
+## Índice de participación
 
-### RPCAPIs Classes
+### Clases de RPCAPIs
 
 * [AuthAPI](../classes/api_auth.authapi.md)
