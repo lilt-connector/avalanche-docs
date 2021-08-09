@@ -1,37 +1,37 @@
-[avalanche](../README.md) › [API-EVM-Inputs](api_evm_inputs.md)
+[avalancha](../README.md) › [API-EVM-Inputs](api_evm_inputs.md)
 
-# Module: API-EVM-Inputs
+# Módulo de entrada: API-EVM-Inputs
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [AmountInput](../classes/api_evm_inputs.amountinput.md)
 * [EVMInput](../classes/api_evm_inputs.evminput.md)
 * [SECPTransferInput](../classes/api_evm_inputs.secptransferinput.md)
-* [TransferableInput](../classes/api_evm_inputs.transferableinput.md)
+* [Entrada transferible](../classes/api_evm_inputs.transferableinput.md)
 
-### Functions
+### Funciones de las Naciones Unidas
 
 * [SelectInputClass](api_evm_inputs.md#const-selectinputclass)
 
-## Functions
+## Funciones de las Naciones Unidas
 
 ### `Const` SelectInputClass
 
-▸ **SelectInputClass**(`inputID`: number, ...`args`: any[]): *[Input](../classes/common_inputs.input.md)*
+- **SelectInputClass**(`inputID`: número, ..`args`: []any): *[Entrada](../classes/common_inputs.input.md)*
 
-*Defined in [src/apis/evm/inputs.ts:31](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/evm/inputs.ts#L31)*
+*Definido en [src/apis/evm/inputs.ts:31](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/evm/inputs.ts#L31)*
 
-Takes a buffer representing the output and returns the proper [Input](../classes/common_inputs.input.md) instance.
+Toma un buffer que representa la salida y devuelve la instancia [de entrada](../classes/common_inputs.input.md) adecuada.
 
-**Parameters:**
+**Parámetros:**
 
-Name | Type | Description |
+| Nombre del nombre de la empresa | Tipo de cambio | Descripción |
 ------ | ------ | ------ |
-`inputID` | number | A number representing the inputID parsed prior to the bytes passed in  |
-`...args` | any[] | - |
+| `inputID` | Número de números | Un número que representa el inputID analizado antes de los bytes pasados |
+| `..args` | cualquier otra cosa que no sea[] | - |
 
-**Returns:** *[Input](../classes/common_inputs.input.md)*
+**Retornos:** *[Entrada](../classes/common_inputs.input.md)*
 
-An instance of an [Input](../classes/common_inputs.input.md)-extended class.
+Una instancia de una clase [extendida por](../classes/common_inputs.input.md) entrada.
