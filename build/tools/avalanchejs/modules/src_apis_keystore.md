@@ -1,15 +1,15 @@
 [avalanche](../README.md) › [src/apis/keystore](src_apis_keystore.md)
 
-# Module: src/apis/keystore
+# Módulo src/apis/keystore
 
-## Index
+## Índice de participación
 
-### References
+### Referencias
 
 * [KeystoreAPI](src_apis_keystore.md#keystoreapi)
 
-## References
+## Referencias
 
-###  KeystoreAPI
+### KeystoreAPI
 
 • **KeystoreAPI**:
