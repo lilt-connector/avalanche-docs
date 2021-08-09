@@ -1,22 +1,22 @@
-[avalanche](../README.md) › [src/common](src_common.md)
+[avalancha](../README.md) › [src/común](src_common.md)
 
-# Module: src/common
+# Módulo src/común
 
-## Index
+## Índice de participación
 
-### References
+### Referencias
 
-* [APIBase](src_common.md#apibase)
-* [Address](src_common.md#address)
-* [Asset](src_common.md#asset)
-* [AssetAmount](src_common.md#assetamount)
+* [APIBA](src_common.md#apibase)
+* [Dirección General de Dirección](src_common.md#address)
+* [Activos](src_common.md#asset)
+* [Importe de activos](src_common.md#assetamount)
 * [BaseIndexParams](src_common.md#baseindexparams)
-* [BaseIndexResponse](src_common.md#baseindexresponse)
+* [BaseIndexResponse Respuesta](src_common.md#baseindexresponse)
 * [BaseNFTOutput](src_common.md#basenftoutput)
-* [Credential](src_common.md#credential)
+* [Credencial](src_common.md#credential)
 * [EVMStandardBaseTx](src_common.md#evmstandardbasetx)
 * [EVMStandardTx](src_common.md#evmstandardtx)
-* [EVMStandardUnsignedTx](src_common.md#evmstandardunsignedtx)
+* [EVMStandardUnsignedTx EVMStandardUnsignedTx](src_common.md#evmstandardunsignedtx)
 * [GetAtomicTxStatusParams](src_common.md#getatomictxstatusparams)
 * [GetBlockchainIDParams](src_common.md#getblockchainidparams)
 * [GetContainerByIDParams](src_common.md#getcontainerbyidparams)
@@ -33,32 +33,33 @@
 * [GetRewardUTXOsResponse](src_common.md#getrewardutxosresponse)
 * [GetStakeParams](src_common.md#getstakeparams)
 * [GetStakeResponse](src_common.md#getstakeresponse)
-* [Index](src_common.md#index)
-* [Input](src_common.md#input)
+* [Índice de participación](src_common.md#index)
+* [Entrada](src_common.md#input)
 * [IsBootstrappedParams](src_common.md#isbootstrappedparams)
 * [JRPCAPI](src_common.md#jrpcapi)
 * [NBytes](src_common.md#nbytes)
-* [Output](src_common.md#output)
-* [OutputOwners](src_common.md#outputowners)
-* [PeersParams](src_common.md#peersparams)
-* [PeersResponse](src_common.md#peersresponse)
+* [Producción de productos](src_common.md#output)
+* [Propietarios](src_common.md#outputowners)
+* [Params](src_common.md#peersparams)
+* [Respuesta entre pares](src_common.md#peersresponse)
 * [RESTAPI](src_common.md#restapi)
 * [RequestResponseData](src_common.md#requestresponsedata)
-* [SECP256k1KeyChain](src_common.md#secp256k1keychain)
-* [SECP256k1KeyPair](src_common.md#secp256k1keypair)
+* [SECP256k1KeyChair](src_common.md#secp256k1keychain)
+* [SECP256k1Keypar](src_common.md#secp256k1keypair)
+* [Serializado](src_common.md#serialized)
 * [SigIdx](src_common.md#sigidx)
-* [Signature](src_common.md#signature)
+* [Firma](src_common.md#signature)
 * [StakedOuts](src_common.md#stakedouts)
-* [StandardAmountInput](src_common.md#standardamountinput)
-* [StandardAmountOutput](src_common.md#standardamountoutput)
+* [Importe estándar](src_common.md#standardamountinput)
+* [Producto Estándar](src_common.md#standardamountoutput)
 * [StandardAssetAmountDestination](src_common.md#standardassetamountdestination)
 * [StandardBaseTx](src_common.md#standardbasetx)
 * [StandardKeyChain](src_common.md#standardkeychain)
 * [StandardKeyPair](src_common.md#standardkeypair)
 * [StandardParseableInput](src_common.md#standardparseableinput)
-* [StandardParseableOutput](src_common.md#standardparseableoutput)
-* [StandardTransferableInput](src_common.md#standardtransferableinput)
-* [StandardTransferableOutput](src_common.md#standardtransferableoutput)
+* [Salida StandardParseableOutput](src_common.md#standardparseableoutput)
+* [Entrada StandardTransferableInput](src_common.md#standardtransferableinput)
+* [Producto StandardTransferableOutput](src_common.md#standardtransferableoutput)
 * [StandardTx](src_common.md#standardtx)
 * [StandardUTXO](src_common.md#standardutxo)
 * [StandardUTXOSet](src_common.md#standardutxoset)
@@ -66,356 +67,362 @@
 * [UTXOResponse](src_common.md#utxoresponse)
 * [WordLists](src_common.md#wordlists)
 
-## References
+## Referencias
 
-###  APIBase
+### APIBA
 
-• **APIBase**:
-
-___
-
-###  Address
-
-• **Address**:
+• **APIBASE**:
 
 ___
 
-###  Asset
+### Dirección General de Dirección
 
-• **Asset**:
+• **Dirección**:
 
 ___
 
-###  AssetAmount
+### Activos
+
+• **Activos**:
+
+___
+
+### Importe de activos
 
 • **AssetAmount**:
 
 ___
 
-###  BaseIndexParams
+### BaseIndexParams
 
 • **BaseIndexParams**:
 
 ___
 
-###  BaseIndexResponse
+### BaseIndexResponse Respuesta
 
 • **BaseIndexResponse**:
 
 ___
 
-###  BaseNFTOutput
+### BaseNFTOutput
 
 • **BaseNFTOutput**:
 
 ___
 
-###  Credential
+### Credencial
 
-• **Credential**:
+• **Credencial**:
 
 ___
 
-###  EVMStandardBaseTx
+### EVMStandardBaseTx
 
 • **EVMStandardBaseTx**:
 
 ___
 
-###  EVMStandardTx
+### EVMStandardTx
 
 • **EVMStandardTx**:
 
 ___
 
-###  EVMStandardUnsignedTx
+### EVMStandardUnsignedTx EVMStandardUnsignedTx
 
 • **EVMStandardUnsignedTx**:
 
 ___
 
-###  GetAtomicTxStatusParams
+### GetAtomicTxStatusParams
 
 • **GetAtomicTxStatusParams**:
 
 ___
 
-###  GetBlockchainIDParams
+### GetBlockchainIDParams
 
 • **GetBlockchainIDParams**:
 
 ___
 
-###  GetContainerByIDParams
+### GetContainerByIDParams
 
 • **GetContainerByIDParams**:
 
 ___
 
-###  GetContainerByIDResponse
+### GetContainerByIDResponse
 
 • **GetContainerByIDResponse**:
 
 ___
 
-###  GetContainerByIndexParams
+### GetContainerByIndexParams
 
 • **GetContainerByIndexParams**:
 
 ___
 
-###  GetContainerByIndexResponse
+### GetContainerByIndexResponse
 
 • **GetContainerByIndexResponse**:
 
 ___
 
-###  GetContainerRangeParams
+### GetContainerRangeParams
 
 • **GetContainerRangeParams**:
 
 ___
 
-###  GetContainerRangeResponse
+### GetContainerRangeResponse
 
 • **GetContainerRangeResponse**:
 
 ___
 
-###  GetIndexParams
+### GetIndexParams
 
 • **GetIndexParams**:
 
 ___
 
-###  GetIsAcceptedParams
+### GetIsAcceptedParams
 
 • **GetIsAcceptedParams**:
 
 ___
 
-###  GetLastAcceptedParams
+### GetLastAcceptedParams
 
 • **GetLastAcceptedParams**:
 
 ___
 
-###  GetLastAcceptedResponse
+### GetLastAcceptedResponse
 
 • **GetLastAcceptedResponse**:
 
 ___
 
-###  GetRewardUTXOsParams
+### GetRewardUTXOsParams
 
 • **GetRewardUTXOsParams**:
 
 ___
 
-###  GetRewardUTXOsResponse
+### GetRewardUTXOsResponse
 
 • **GetRewardUTXOsResponse**:
 
 ___
 
-###  GetStakeParams
+### GetStakeParams
 
-• **GetStakeParams**:
-
-___
-
-###  GetStakeResponse
-
-• **GetStakeResponse**:
+• **GetstakeParams**:
 
 ___
 
-###  Index
+### GetStakeResponse
+
+• **GetstakeResponse**:
+
+___
+
+### Índice de participación
 
 • **Index**:
 
 ___
 
-###  Input
+### Entrada
 
-• **Input**:
+• **Entrada**:
 
 ___
 
-###  IsBootstrappedParams
+### IsBootstrappedParams
 
 • **IsBootstrappedParams**:
 
 ___
 
-###  JRPCAPI
+### JRPCAPI
 
 • **JRPCAPI**:
 
 ___
 
-###  NBytes
+### NBytes
 
 • **NBytes**:
 
 ___
 
-###  Output
+### Producción de productos
 
-• **Output**:
-
-___
-
-###  OutputOwners
-
-• **OutputOwners**:
+• **Resultado**:
 
 ___
 
-###  PeersParams
+### Propietarios
+
+• **Propietarios de resultados**:
+
+___
+
+### Params
 
 • **PeersParams**:
 
 ___
 
-###  PeersResponse
+### Respuesta entre pares
 
-• **PeersResponse**:
+• **Respuesta entre pares**:
 
 ___
 
-###  RESTAPI
+### RESTAPI
 
 • **RESTAPI**:
 
 ___
 
-###  RequestResponseData
+### RequestResponseData
 
 • **RequestResponseData**:
 
 ___
 
-###  SECP256k1KeyChain
+### SECP256k1KeyChair
 
 • **SECP256k1KeyChain**:
 
 ___
 
-###  SECP256k1KeyPair
+### SECP256k1Keypar
 
 • **SECP256k1KeyPair**:
 
 ___
 
-###  SigIdx
+### Serializado
+
+• **Serializado**:
+
+___
+
+### SigIdx
 
 • **SigIdx**:
 
 ___
 
-###  Signature
+### Firma
 
-• **Signature**:
-
-___
-
-###  StakedOuts
-
-• **StakedOuts**:
+• **Firma**:
 
 ___
 
-###  StandardAmountInput
+### StakedOuts
 
-• **StandardAmountInput**:
-
-___
-
-###  StandardAmountOutput
-
-• **StandardAmountOutput**:
+• **Salidas de marcos**:
 
 ___
 
-###  StandardAssetAmountDestination
+### Importe estándar
 
-• **StandardAssetAmountDestination**:
+• Importe **StandardAmountInput**:
 
 ___
 
-###  StandardBaseTx
+### Producto Estándar
+
+• Salida **StandardAmountOutput**:
+
+___
+
+### StandardAssetAmountDestination
+
+• Importe De Activos **StandardAssetAmountDestination**:
+
+___
+
+### StandardBaseTx
 
 • **StandardBaseTx**:
 
 ___
 
-###  StandardKeyChain
+### StandardKeyChain
 
-• **StandardKeyChain**:
+• Cadena **StandardKeyChain**:
 
 ___
 
-###  StandardKeyPair
+### StandardKeyPair
 
 • **StandardKeyPair**:
 
 ___
 
-###  StandardParseableInput
+### StandardParseableInput
 
-• **StandardParseableInput**:
-
-___
-
-###  StandardParseableOutput
-
-• **StandardParseableOutput**:
+• Entrada **StandardParseableInput**:
 
 ___
 
-###  StandardTransferableInput
+### Salida StandardParseableOutput
 
-• **StandardTransferableInput**:
-
-___
-
-###  StandardTransferableOutput
-
-• **StandardTransferableOutput**:
+• Salida **StandardParseableOutput**:
 
 ___
 
-###  StandardTx
+### Entrada StandardTransferableInput
+
+• Entrada **StandardTransferableInput**:
+
+___
+
+### Producto StandardTransferableOutput
+
+• Salida **StandardTransferableOutput**:
+
+___
+
+### StandardTx
 
 • **StandardTx**:
 
 ___
 
-###  StandardUTXO
+### StandardUTXO
 
 • **StandardUTXO**:
 
 ___
 
-###  StandardUTXOSet
+### StandardUTXOSet
 
 • **StandardUTXOSet**:
 
 ___
 
-###  StandardUnsignedTx
+### StandardUnsignedTx
 
 • **StandardUnsignedTx**:
 
 ___
 
-###  UTXOResponse
+### UTXOResponse
 
-• **UTXOResponse**:
+• **UTXORESponse**:
 
 ___
 
-###  WordLists
+### WordLists
 
 • **WordLists**:
