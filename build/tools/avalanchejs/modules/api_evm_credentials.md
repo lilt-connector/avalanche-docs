@@ -1,34 +1,34 @@
 [avalanche](../README.md) › [API-EVM-Credentials](api_evm_credentials.md)
 
-# Module: API-EVM-Credentials
+# Módulo de Credenciales API-EVM-Credentials
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [SECPCredential](../classes/api_evm_credentials.secpcredential.md)
 
-### Functions
+### Funciones de las Naciones Unidas
 
 * [SelectCredentialClass](api_evm_credentials.md#const-selectcredentialclass)
 
-## Functions
+## Funciones de las Naciones Unidas
 
 ### `Const` SelectCredentialClass
 
-▸ **SelectCredentialClass**(`credid`: number, ...`args`: any[]): *[Credential](../classes/common_signature.credential.md)*
+- **SelectCredentialClass(credid:**`` número, ..`args`: []SelectCredentialClass(credid: *[Credencial](../classes/common_signature.credential.md)*
 
-*Defined in [src/apis/evm/credentials.ts:17](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/evm/credentials.ts#L17)*
+*Definido en [src/apis/evm/credenciales.ts:17](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/evm/credentials.ts#L17)*
 
-Takes a buffer representing the credential and returns the proper [Credential](../classes/common_signature.credential.md) instance.
+Toma un buffer que representa la credencial y devuelve la instancia [de Credencial](../classes/common_signature.credential.md) adecuada.
 
-**Parameters:**
+**Parámetros:**
 
-Name | Type | Description |
+| Nombre del nombre de la empresa | Tipo de cambio | Descripción |
 ------ | ------ | ------ |
-`credid` | number | A number representing the credential ID parsed prior to the bytes passed in  |
-`...args` | any[] | - |
+| `credo` | Número de números | Un número que representa el ID de credencial analizado antes de los bytes pasados en |
+| `..args` | cualquier otra cosa que no sea[] | - |
 
-**Returns:** *[Credential](../classes/common_signature.credential.md)*
+**Retornos:** *[Credencial](../classes/common_signature.credential.md)*
 
-An instance of an [Credential](../classes/common_signature.credential.md)-extended class.
+Una instancia de una clase [de extensión](../classes/common_signature.credential.md) credencial.
