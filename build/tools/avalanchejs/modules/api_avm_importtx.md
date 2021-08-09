@@ -1,21 +1,39 @@
-[avalanche](../README.md) › [API-AVM-ImportTx](api_avm_importtx.md)
+[avalancha](../README.md) › [API-AVM-ImportTx](api_avm_importtx.md)
 
-# Module: API-AVM-ImportTx
+# Módulo API-AVM-ImportTx
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [ImportTx](../classes/api_avm_importtx.importtx.md)
 
 ### Variables
 
-* [serializer](api_avm_importtx.md#const-serializer)
+* [b)](api_avm_importtx.md#const-buffer)
+* [cb58](api_avm_importtx.md#const-cb58)
+* [serialización](api_avm_importtx.md#const-serialization)
 
 ## Variables
 
-### `Const` serializer
+### `Consta` buffer
 
-• **serializer**: *[Serialization](../classes/utils_serialization.serialization.md)‹›* = Serialization.getInstance()
+• **buffer**: *[SerializedType](src_utils.md#serializedtype)* = "Buffer"
 
-*Defined in [src/apis/avm/importtx.ts:24](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/avm/importtx.ts#L24)*
+*Definido en [src/apis/avm/importtx.ts:27](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/avm/importtx.ts#L27)*
+
+___
+
+### `Consta` cb58
+
+• **cb58**: *[SerializedType](src_utils.md#serializedtype)* = "cb58"
+
+*Definido en [src/apis/avm/importtx.ts:26](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/avm/importtx.ts#L26)*
+
+___
+
+### `Consta` serialización
+
+• **Serialización**: Serialización = *[Serialization](../classes/utils_serialization.serialization.md)*.getInstance()
+
+*Definido en [src/apis/avm/importtx.ts:25](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/avm/importtx.ts#L25)*
