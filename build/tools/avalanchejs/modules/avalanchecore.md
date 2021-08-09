@@ -1,9 +1,9 @@
-[avalanche](../README.md) › [AvalancheCore](avalanchecore.md)
+[avalancha](../README.md) › [AvalancheCore](avalanchecore.md)
 
-# Module: AvalancheCore
+# Módulo AvalancheCore
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [AvalancheCore](../classes/avalanchecore.avalanchecore-1.md)
