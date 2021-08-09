@@ -1,9 +1,9 @@
-[avalanche](../README.md) › [API-Admin](api_admin.md)
+[avalancha](../README.md) › [API-Admin](api_admin.md)
 
-# Module: API-Admin
+# Módulo de API-Admin
 
-## Index
+## Índice de participación
 
-### RPCAPIs Classes
+### Clases de RPCAPIs
 
 * [AdminAPI](../classes/api_admin.adminapi.md)
