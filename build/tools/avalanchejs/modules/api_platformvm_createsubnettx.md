@@ -1,21 +1,9 @@
 [avalanche](../README.md) › [API-PlatformVM-CreateSubnetTx](api_platformvm_createsubnettx.md)
 
-# Module: API-PlatformVM-CreateSubnetTx
+# Módulo API-PlatformVM-CreateSubnetTx
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [CreateSubnetTx](../classes/api_platformvm_createsubnettx.createsubnettx.md)
-
-### Variables
-
-* [serializer](api_platformvm_createsubnettx.md#const-serializer)
-
-## Variables
-
-### `Const` serializer
-
-• **serializer**: *[Serialization](../classes/utils_serialization.serialization.md)‹›* = Serialization.getInstance()
-
-*Defined in [src/apis/platformvm/createsubnettx.ts:14](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/platformvm/createsubnettx.ts#L14)*
