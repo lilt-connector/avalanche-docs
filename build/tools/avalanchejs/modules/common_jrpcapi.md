@@ -1,9 +1,9 @@
-[avalanche](../README.md) › [Common-JRPCAPI](common_jrpcapi.md)
+[avalancha](../README.md) › [Common-JRPCAPI](common_jrpcapi.md)
 
-# Module: Common-JRPCAPI
+# Módulo común: Common-JRPCAPI
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [JRPCAPI](../classes/common_jrpcapi.jrpcapi.md)
