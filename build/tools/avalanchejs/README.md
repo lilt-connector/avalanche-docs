@@ -1,64 +1,64 @@
 # AvalancheJS
 
-AvalancheJS is a JavaScript Library for interfacing with the [Avalanche](../../../#avalanche) platform. It is built using TypeScript and intended to support both browser and Node.js. The AvalancheJS library allows one to issue commands to the Avalanche node APIs.
+[AvalanchejS](../../../#avalanche) es una Biblioteca JavaScript para el interconexión con la plataforma Avalanche. Se construye utilizando TypeScript y se pretende apoyar tanto el navegador como Node.js. La biblioteca AvalanchejS permite que uno emita comandos a las API de nodo Avalanche.
 
-The APIs currently supported by default are:
+Las API actualmente compatibles con predeterminada son:
 
-* Admin API
-* Auth API
-* AVM API \(X-Chain\)
+* API de administración
+* API Auth
+* API AVM \(X-Chain\)
 * EVM API \(C-Chain\)
-* Health API
+* API de salud
 * Info API
-* Keystore API
-* Metrics API
+* API de Keystore
+* API de Metrics
 * PlatformVM API
 
-We built AvalancheJS with ease of use in mind. With this library, any Javascript developer is able to interact with a node on the Avalanche Platform who has enabled their API endpoints for the developer’s consumption. We keep the library up-to-date with the latest changes in the [Avalanche Platform Specification](https://docs.avax.network).
+Construimos AvalanchejS con facilidad de uso en mente. Con esta biblioteca, cualquier desarrollador de Javascript puede interactuar con un nodo en la plataforma Avalanche que ha permitido sus puntos de acceso API para el consumo del desarrollador. Mantendremos la biblioteca al día con los últimos cambios en la [especificación de plataforma de Avalanche](https://docs.avax.network).
 
-Using AvalancheJS, developers can:
+Utilizando AvalancheJS, los desarrolladores pueden:
 
-* Locally manage private keys
-* Retrieve balances on addresses
-* Get UTXOs for addresses
-* Build and sign transactions
-* Issue signed transactions to the X-Chain, P-Chain and C-Chain on the Primary network
-* Create a Subnetwork
-* Swap AVAX and assets between the X-Chain, P-Chain and C-Chain
-* Add a Validator to the Primary network
-* Add a Delegator to the Primary network
-* Administer a local node
-* Retrieve Avalanche network information from a node
+* Administrar las teclas privadas localmente
+* Recuperar los saldos en las direcciones
+* Obtén UTXOS para direcciones
+* Construir y firmar transacciones
+* Emitir transacciones firmadas a la cadena X-Chain, P-Chain y C-Chain en la red primaria
+* Crear una subred
+* Intercambiar AVAX y activos entre la cadena X-Chain, la cadena P y la cadena C
+* Añadir un Validador a la red primaria
+* Añada un Delegado a la red primaria
+* Administrar un nodo local
+* Recuperar la información de la red Avalanche desde un nodo
 
-## Requirements
+## Requisitos para requisitos de seguridad
 
-AvalancheJS requires Node.js version 12.14.1 or higher to compile.
+AvalanchejS requiere que Node.js versión 12.14.1 o superior se compile.
 
-## Installation
+## Instalación de instalaciones
 
-Avalanche is available for install via `npm`:
+Avalanche está disponible para instalar a través de la `npm`:
 
-`npm install --save avalanche`
+`npm instale --save avalancha`
 
-You can also pull the repo down directly and build it from scratch:
+También puede tirar del repo directamente hacia abajo y construirlo desde cero:
 
-`npm run build`
+`npm ejecutar construir`
 
-This will generate a pure Javascript library and place it in a folder named “web” in the project root. The “avalanchejs” file can then be dropped into any project as a pure javascript implementation of Avalanche.
+Esto generará una biblioteca de Javascript pura y la colocará en una carpeta llamada "web" en la raíz del proyecto. El archivo "avalanchejs" puede entonces ser lanzado en cualquier proyecto como una implementación pura de javascript de Avalanche.
 
-The AvalancheJS library can be imported into your existing Node.js project as follows:
+La biblioteca AvalanchejS puede importarse en su proyecto Node.js existente:
 
 ```text
 const avalanche = require("avalanche");
 ```
 
-Or into your TypeScript project like this:
+O en su proyecto TypeScript así:
 
 ```text
 import { Avalanche } from "avalanche"
 ```
 
-## Importing essentials
+## Importar elementos esenciales
 
 ```text
 import {
@@ -71,10 +71,10 @@ import {
 let bintools = BinTools.getInstance();
 ```
 
-The above lines import the libraries used in the tutorials. The libraries include:
+Las líneas anteriores importan las bibliotecas utilizadas en los tutoriales. Las bibliotecas incluyen:
 
-* avalanche: Our javascript module.
-* bn.js: A bignumber module use by AvalancheJS.
-* buffer: A Buffer library.
-* BinTools: A singleton built into AvalancheJS that is used for dealing with binary data.
+* avalanche: Nuestro módulo javascript.
+* bn.js: Uso de módulo de gran número por AvalancheJS.
+* Una biblioteca de buffer.
+* BinTools: Un singleton incorporado en AvalanchejS que se utiliza para tratar con datos binarios.
 
