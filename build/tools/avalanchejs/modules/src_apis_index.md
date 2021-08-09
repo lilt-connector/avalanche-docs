@@ -1,15 +1,15 @@
-[avalanche](../README.md) › [src/apis/index](src_apis_index.md)
+[avalancha](../README.md) › [src/apis/index](src_apis_index.md)
 
-# Module: src/apis/index
+# Módulo src/apis/index
 
-## Index
+## Índice de participación
 
-### References
+### Referencias
 
 * [IndexAPI](src_apis_index.md#indexapi)
 
-## References
+## Referencias
 
-###  IndexAPI
+### IndexAPI
 
 • **IndexAPI**:
