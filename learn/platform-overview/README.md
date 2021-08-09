@@ -1,90 +1,93 @@
 ---
-description: Learn the core concepts and architecture of Avalanche
+description: Aprenda los conceptos básicos y la arquitectura de Avalanche
+
 ---
 
-# Platform Overview
+# Descripción de la plataforma
 
-Avalanche features 3 built-in blockchains: [**Exchange Chain \(X-Chain\)**](./#exchange-chain-x-chain), [**Platform Chain \(P-Chain\)**](./#platform-chain-p-chain), and [**Contract Chain \(C-Chain**\)](./#contract-chain-c-chain). All 3 blockchains are [validated](http://support.avalabs.org/en/articles/4064704-what-is-a-blockchain-validator) and secured by the [**Primary Network**](http://support.avalabs.org/en/articles/4135650-what-is-the-primary-network). The Primary Network is a special [subnet](http://support.avalabs.org/en/articles/4064861-what-is-a-subnetwork-subnet), and all members of all custom subnets must also be a member of the Primary Network by staking at least 2,000 AVAX.
+Avalanche cuenta con 3 cadenas de bloqueo incorporadas: Cadena [**de intercambio**](./#exchange-chain-x-chain) \(X-Chain\), Cadena [**de plataforma**](./#platform-chain-p-chain) \(P-Chain\) y [**Cadena de Contrato**](./#contract-chain-c-chain) \(C-Chain\). Los 3 blockchains son [validados](http://support.avalabs.org/en/articles/4064704-what-is-a-blockchain-validator) y garantizados por la [**Red Primaria**](http://support.avalabs.org/en/articles/4135650-what-is-the-primary-network). La Red Primaria es un [subred](http://support.avalabs.org/en/articles/4064861-what-is-a-subnetwork-subnet) especial, y todos los miembros de todas las subredes personalizadas también deben ser miembro de la Red Primaria al sujetar al menos 2.000 AVAX.
 
-Here are tutorials on [creating a subnet](../../build/tutorials/platform/create-a-subnet.md) and [adding validators](../../build/tutorials/nodes-and-staking/add-a-validator.md) to a subnet.
+Aquí hay tutoriales sobre [la creación de un subnet](../../build/tutorials/platform/create-a-subnet.md) y [la adición](../../build/tutorials/nodes-and-staking/add-a-validator.md) de validadores a un subnet.
 
-![Primary network](../../.gitbook/assets/image%20%2821%29.png)
+![Red primaria](../../.gitbook/assets/image%20%2821%29.png)
 
-## Subnets
+## Subvenciones
 
-A **subnet**, or subnetwork, is a dynamic set of validators working together to achieve consensus on the state of a set of blockchains. Each blockchain is validated by exactly one subnet. A subnet can validate many blockchains. A node may be a member of many subnets.
+Una **subred**, o subred, es un conjunto dinámico de validadores que trabajan juntos para lograr un consenso sobre el estado de un conjunto de cadenas de bloqueo. Cada blockchain es validado por exactamente un subnet. Un subnet puede validar muchas cadenas de bloqueo. Un nodo puede ser miembro de muchas subredes.
 
-A subnet manages its own membership, and it may require that its constituent validators have certain properties. This is very useful, and we explore its ramifications in more depth below:
+Un subnet gestiona su propia membresía, y puede requerir que sus validadores constitutivos tengan ciertas propiedades. Esto es muy útil, y exploramos sus ramificaciones en más profundidad a continuación:
 
-### Compliance
+### Cumplimiento de las normas
 
-Avalanche’s subnet architecture makes regulatory compliance manageable. As mentioned above, a subnet may require validators to meet a set of requirements.
+La arquitectura subnet de Avalanche hace que el cumplimiento reglamentario sea manejable. Como se ha mencionado anteriormente, un subred puede exigir a los validadores que cumplan un conjunto de requisitos.
 
-Some examples include:
+Algunos ejemplos incluyen:
 
-* Validators must be located in a given country
-* Validators must pass a KYC/AML checks
-* Validators must hold a certain license
+* Los validadores deben estar localizados en un país determinado
+* Los validadores deben pasar los controles KYC/AML
+* Los validadores deben tener una licencia determinada
 
-### Support for Private Blockchains
+### Soporte para Bloqueos Privados
 
-You can create a subnet where only certain pre-defined validators may join and create a private subnet where the contents of the blockchains would be visible only to those validators. This is ideal for organizations interested in keeping their information private.
+Puede crear un subnet donde solo ciertos validadores predefinidos pueden unirse y crear un subred privado donde el contenido de las cadenas de bloques solo sería visible para esos validadores. Esto es ideal para organizaciones interesadas en mantener su información privada.
 
-### Separation of Concerns
+### Separación de las preocupaciones
 
-In a heterogeneous network of blockchains, some validators will not want to validate certain blockchains because they simply have no interest in those blockchains. The subnet model allows validators to only concern themselves with blockchains that they care about. This reduces the burden on validators.
+En una red heterogénea de cadenas de bloqueo, algunos validadores no querrán validar ciertas cadenas de bloqueo porque simplemente no tienen interés en esas cadenas de bloqueo. El modelo de subnet permite a los validadores solo preocuparse por las cadenas de bloqueo que les interesan. Esto reduce la carga para los validadores.
 
-### Application-Specific Requirements
+### Requisitos específicos de aplicación
 
-Different blockchain-based applications may require validators to have certain properties. Suppose there is an application that requires large amounts of RAM or CPU power. A Subnet could require that validators meet certain [hardware requirements](http://support.avalabs.org/en/articles/4064879-technical-requirements-for-running-a-validator-node-on-avalanche) so that the application doesn’t suffer from low performance due to slow validators.
+Diferentes aplicaciones basadas en blockchain pueden requerir que los validadores tengan ciertas propiedades. Supongamos que hay una aplicación que requiere grandes cantidades de energía RAM o CPU. Un Subred podría requerir que los validadores cumplan ciertos [requisitos](http://support.avalabs.org/en/articles/4064879-technical-requirements-for-running-a-validator-node-on-avalanche) de hardware para que la aplicación no sufra de bajo rendimiento debido a los validadores lentos.
 
-## Virtual Machines
+## Máquinas virtuales
 
-A **Virtual Machine** \(VM\) defines the application-level logic of a blockchain. In technical terms, it specifies the blockchain’s state, state transition function, transactions, and the API through which users can interact with the blockchain. Every blockchain on Avalanche is an instance of a VM.
+Una **máquina virtual** \(VM\) define la lógica de nivel de aplicación de una cadena de bloque. En términos técnicos, especifica el estado, la función de transición del blockchain, las transacciones y la API a través de la cual los usuarios pueden interactuar con el blockchain. Cada cadena de bloques en Avalanche es una instancia de un VM.
 
-When you write a VM, you don't need to concern yourself with lower-level logic like networking, consensus, and the structure of the blockchain. Avalanche does this behind the scenes so you can focus on the thing you would like to build.
+Cuando escribes un VM, no necesitas preocuparte por la lógica de menor nivel como el networking, el consenso y la estructura de la cadena de bloqueo. Avalanche hace esto detrás de las escenas para que pueda enfocarse en lo que le gustaría construir.
 
-Think of a VM as a blueprint for a blockchain; you can use the same VM to create many blockchains, each of which follows the same ruleset but is logically independent of other blockchains.
+Piensa en un VM como un plan para un blockchain; puedes usar el mismo VM para crear muchas cadenas de bloqueo, cada uno de los cuales sigue el mismo blockchains, pero es lógicamente independiente de otras cadenas de bloque.
 
-### Why Virtual Machines?
+### ¿Por qué máquinas virtuales?
 
-At first, blockchain networks had one Virtual Machine \(VM\) with a pre-defined, static set of functionality. This rigid, monolithic design limited what blockchain-based applications one could run on such networks.
+Al principio, las redes de blockchain tenían una máquina virtual \(VM\) con un conjunto de funcionalidades estáticas predefinidas. Este diseño monolítico rígido limitó las aplicaciones basadas en blockchain que se podría ejecutar en tales redes.
 
-People who wanted custom decentralized applications had to create their own, entirely new blockchain network from scratch. Doing so required a great deal of time and effort, offered limited security, and generally resulted in a bespoke, fragile blockchain that never got off the ground.
+Las personas que querían aplicaciones descentralizadas personalizadas tenían que crear su propia red de blockchain completamente nueva desde cero. Para ello se requiere mucho tiempo y esfuerzo, se ofrece una seguridad limitada y, en general, se produjo una cadena de bloqueo a medida y frágil que nunca se bajó del suelo.
 
-Ethereum made a step toward solving this problem with smart contracts. Developers didn’t need to worry about networking and consensus, but creating decentralized applications was still hard. The Ethereum VM has low performance and imposes restrictions on smart contract developers. Solidity and the other few languages for writing Ethereum smart contracts are unfamiliar to most programmers.
+Ethereum dio un paso hacia la solución de este problema con contratos inteligentes. Los desarrolladores no tenían que preocuparse por la red y el consenso, pero la creación de aplicaciones descentralizadas seguía siendo difícil. El Ethereum VM tiene un bajo rendimiento e impone restricciones a los desarrolladores de contratos inteligentes. La solidez y los otros idiomas para escribir contratos inteligentes Ethereum no son familiares para la mayoría de los programadores.
 
-Avalanche VMs \(AVMs\) make it easy to define a blockchain-based decentralized application. Rather than new, limited languages like Solidity, developers can write VMs in Go \(other languages will be supported in the future\).
+Avalanche VMs \(AVMs\) facilita la definición de una aplicación descentralizada basada en blockchain. En lugar de nuevos idiomas limitados como Solidity, los desarrolladores pueden escribir VMs en Go \(otros idiomas serán compatibles en el futuro\).
 
-### Creating Your Blockchain and Virtual Machine
+### Crear su cadena de bloqueo y máquina virtual
 
-Avalanche does not yet support the creation of new Virtual Machines \(VMs\). Presently, Avalanche only supports the creation of new instances of the Avalanche VM.
+Avalanche apoya la creación de nuevos ejemplos del VM Avalanche.
 
-{% page-ref page="../../build/tutorials/platform/create-a-new-blockchain.md" %}
+{% page-ref page=".. /../build/tutorials/platform/create-avm-blockchain.md" %}
 
-In the future, Avalanche will allow you to define and launch custom blockchains, and we’ll release SDKs to help you do so.
+Avalanche también admite crear blockchains personalizados con máquinas virtuales.
 
-{% page-ref page="../../build/tutorials/platform/create-a-virtual-machine-vm.md" %}
+{% page-ref page=".. /../build/tutorials/platform/create-a-virtual-machine-vm.md" %}
 
-## Exchange Chain \(X-Chain\)
+{% page-ref page=".. /../build/tutorials/platform/create-custom-blockchain.md" %}
 
-The **X-Chain** acts as a decentralized platform for creating and trading digital smart assets, a representation of a real-world resource \(e.g., equity, bonds\) with a set of rules that govern its behavior, like “can’t be traded until tomorrow” or “can only be sent to US citizens.”
+## Cadena de intercambio \(X-Chain\)
 
-One asset traded on the X-Chain is AVAX. When you issue a transaction to a blockchain on Avalanche, you pay a fee denominated in AVAX.
+La **cadena X** actúa como una plataforma descentralizada para crear y comerciar activos inteligentes digitales, una representación de un recurso del mundo real \(por ejemplo, equidad, bonos\) con un conjunto de reglas que rigen su comportamiento, como "no se puede negociar hasta mañana" o "solo puede ser enviado a ciudadanos estadounidenses".
 
-The X-Chain is an instance of the Avalanche Virtual Machine \(AVM\). The [X-Chain API](../../build/avalanchego-apis/exchange-chain-x-chain-api.md) allows clients to create and trade assets on the X-Chain and other instances of the AVM.
+Un activo negociado en la cadena X es AVAX. Cuando emita una transacción a una cadena de bloques en Avalanche, pagas una tarifa denominada en AVAX.
 
-{% page-ref page="../../build/tutorials/smart-digital-assets/create-a-fix-cap-asset.md" %}
+La cadena X es una instancia de la máquina virtual de Avalanche \(AVM\). La [API de X-Chain](../../build/avalanchego-apis/exchange-chain-x-chain-api.md) permite a los clientes crear y comerciar activos en la cadena X y otras instancias del AVM.
 
-## Platform Chain \(P-Chain\)
+{% page-ref page=".. /../build/tutorials/smart-digital-assets/create-a-fix-cap-asset.md" %}
 
-The **P-Chain** is the metadata blockchain on Avalanche and coordinates validators, keeps track of active subnets, and enables the creation of new subnets. The P-Chain implements the [Snowman consensus protocol](../../#snowman-consensus-protocol).
+## Cadena de plataforma \(P-Chain\)
 
-The [P-Chain API](../../build/avalanchego-apis/platform-chain-p-chain-api.md) allows clients to create subnets, add validators to subnets, and create blockchains.
+La **cadena P** es la cadena de bloques de metadatos de Avalanche y coordina validadores, realiza un seguimiento de las subredes activas y permite la creación de nuevas subredes. La cadena P implementa el [protocolo de consenso de Snowman](../../#snowman-consensus-protocol).
 
-## Contract Chain \(C-Chain\)
+La [API de cadena P](../../build/avalanchego-apis/platform-chain-p-chain-api.md) permite a los clientes crear subnets, agregar validadores a subnets y crear cadenas de bloqueo.
 
-The **C-Chain** allows for the creation smart contracts using the [C-Chain’s API](../../build/avalanchego-apis/contract-chain-c-chain-api.md).
+## Cadena de contrato \(C-Chain\)
 
-The C-Chain is an instance of the Ethereum Virtual Machine powered by [Avalanche](../../).
+La **cadena C** permite la creación de contratos inteligentes utilizando la [API de la](../../build/avalanchego-apis/contract-chain-c-chain-api.md) cadena C.
+
+La cadena C es una instancia de la máquina virtual Ethereum alimentada por [Avalanche](../../).
 
