@@ -1,21 +1,21 @@
-[avalanche](../README.md) › [API-EVM-ImportTx](api_evm_importtx.md)
+[avalancha](../README.md) › [API-EVM-ImportTx](api_evm_importtx.md)
 
-# Module: API-EVM-ImportTx
+# Módulo API-EVM-ImportTx
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [ImportTx](../classes/api_evm_importtx.importtx.md)
 
 ### Variables
 
-* [serializer](api_evm_importtx.md#const-serializer)
+* [serializador](api_evm_importtx.md#const-serializer)
 
 ## Variables
 
 ### `Const` serializer
 
-• **serializer**: *[Serialization](../classes/utils_serialization.serialization.md)* = Serialization.getInstance()
+• **serializador**: Serialización = *[Serialization](../classes/utils_serialization.serialization.md)*.getInstance()
 
-*Defined in [src/apis/evm/importtx.ts:35](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/evm/importtx.ts#L35)*
+*Definido en [src/apis/evm/importtx.ts:35](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/evm/importtx.ts#L35)*
