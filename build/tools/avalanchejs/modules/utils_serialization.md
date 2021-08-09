@@ -1,43 +1,43 @@
-[avalanche](../README.md) › [Utils-Serialization](utils_serialization.md)
+[avalancha](../README.md) › [Utils-Serialization](utils_serialization.md)
 
-# Module: Utils-Serialization
+# Módulo de Utils-Serialization
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [Serializable](../classes/utils_serialization.serializable.md)
 * [Serialization](../classes/utils_serialization.serialization.md)
 
-### Type aliases
+### Alias de tipo
 
 * [SerializedEncoding](utils_serialization.md#serializedencoding)
-* [SerializedType](utils_serialization.md#serializedtype)
+* [Tipo de serie](utils_serialization.md#serializedtype)
 
 ### Variables
 
-* [SERIALIZATIONVERSION](utils_serialization.md#const-serializationversion)
+* [VERSIÓN DE SERIALIZACIÓN](utils_serialization.md#const-serializationversion)
 
-## Type aliases
+## Alias de tipo
 
-###  SerializedEncoding
+### SerializedEncoding
 
-Ƭ **SerializedEncoding**: *"hex" | "cb58" | "base58" | "base64" | "decimalString" | "number" | "utf8" | "display"*
+Ƭ **SerializedEncoding**: *"hex" | "cb58" | "base58" | "base64" | "decimalString" | "número" | "utf8" | "exhibir"*
 
-*Defined in [src/utils/serialization.ts:28](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/utils/serialization.ts#L28)*
+*Definido en [src/utils/serialización.ts:27](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/utils/serialization.ts#L27)*
 
 ___
 
-###  SerializedType
+### Tipo de serie
 
-Ƭ **SerializedType**: *"hex" | "BN" | "Buffer" | "bech32" | "nodeID" | "privateKey" | "cb58" | "base58" | "base64" | "decimalString" | "number" | "utf8"*
+Ƭ **SerializedType**: *"hex" | "BN" | "Buffer" | "beck32" | "nodeID" | "privateKey" | "cb58" | "base58" | "base64" | "decimalString" | "número" | "utf8"*
 
-*Defined in [src/utils/serialization.ts:13](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/utils/serialization.ts#L13)*
+*Definido en [src/utils/serialización.ts:13](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/utils/serialization.ts#L13)*
 
 ## Variables
 
 ### `Const` SERIALIZATIONVERSION
 
-• **SERIALIZATIONVERSION**: *0* = 0
+• **SERIALIZATIONVERSION**: *número* = 0
 
-*Defined in [src/utils/serialization.ts:11](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/utils/serialization.ts#L11)*
+*Definido en [src/utils/serialización.ts:12](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/utils/serialization.ts#L12)*
