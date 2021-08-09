@@ -1,21 +1,21 @@
 [avalanche](../README.md) › [API-PlatformVM-ExportTx](api_platformvm_exporttx.md)
 
-# Module: API-PlatformVM-ExportTx
+# Módulo API-PlatformVM-ExportTx
 
-## Index
+## Índice de participación
 
-### Classes
+### Clases de tipo
 
 * [ExportTx](../classes/api_platformvm_exporttx.exporttx.md)
 
 ### Variables
 
-* [serializer](api_platformvm_exporttx.md#const-serializer)
+* [serialización](api_platformvm_exporttx.md#const-serialization)
 
 ## Variables
 
-### `Const` serializer
+### `Consta` serialización
 
-• **serializer**: *[Serialization](../classes/utils_serialization.serialization.md)‹›* = Serialization.getInstance()
+• **Serialización**: Serialización = *[Serialization](../classes/utils_serialization.serialization.md)*.getInstance()
 
-*Defined in [src/apis/platformvm/exporttx.ts:21](https://github.com/ava-labs/avalanchejs/blob/1a2866a/src/apis/platformvm/exporttx.ts#L21)*
+*Definido en [src/apis/platformvm/exporttx.ts:21](https://github.com/ava-labs/avalanchejs/blob/ae78dee/src/apis/platformvm/exporttx.ts#L21)*
