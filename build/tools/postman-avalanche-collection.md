@@ -1,86 +1,86 @@
-# Postman collection
+# Colección postal
 
-## What is Postman?
+## ¿Qué es Postman?
 
-Postman is a free tool used by developers to quickly and easily send REST, SOAP, and GraphQL requests and test APIs. It is available as both an online tool and an application for Linux, MacOS and Windows. Postman allows you to quickly issue API calls and see the responses in a nicely formatted, searchable form.
+Postman es una herramienta gratuita utilizada por los desarrolladores para enviar rápidamente y fácilmente solicitudes de REST, SOAP, y GraphQL y las API de prueba. Está disponible tanto como herramienta en línea como aplicación para Linux, MacOS y Windows. Postman le permite emitir rápidamente llamadas de API y ver las respuestas en un formato muy formateado y buscable.
 
-We have made a Postman collection for [Avalanche](https://docs.avax.network), that includes all the public API calls that are available on [AvalancheGo instance](../release-notes/avalanchego.md), allowing you to quickly issue commands to your node and see the response, without having to copy and paste long and complicated `curl` commands.
+Hemos hecho una colección de Postman para [Avalanche](https://docs.avax.network), que incluye todas las llamadas de API públicas que están disponibles en [la instancia de AvalancheGo](../release-notes/avalanchego.md) para que pueda emitir rápidamente comandos a su nodo y ver la respuesta, sin tener que copiar y pegar comandos de `curl` largos y complicados.
 
-Along with the API collection, there is also the example Avalanche environment for Postman, that defines common variables such as IP address of the node, your Avalanche addresses and similar common elements of the queries, so you don't have to enter them multiple times.
+Junto con la colección API, también hay el ejemplo entorno Avalanche para Postman, que define variables comunes como la dirección IP del nodo, sus direcciones Avalanche y elementos comunes similares de las consultas, por lo que no tienes que introducirlas varias veces.
 
-Combined, they will allow you to easily keep tabs on your node, check on its state and do quick queries to find out details about its operation.
+Combinados, te permitirán mantener fácilmente las pestañas en tu nodo, revisar su estado y hacer consultas rápidas para averiguar detalles sobre su funcionamiento.
 
-## Setup
+## Configuración
 
-### Postman installation
+### Instalación de Postales
 
-Postman can be installed locally or used as a web app. We recommend installing the application, as it simplifies operation. You can download Postman from its [website](https://www.postman.com/downloads/). It is recommended that you sign up using your email address as then your workspace can be easily backed up and shared between web app and the app installed on your computer.
+Postman se puede instalar localmente o utilizar como una aplicación web. Recomendamos instalar la aplicación, ya que simplifica la operación. Puede descargar Postman desde su [sitio web](https://www.postman.com/downloads/). Se recomienda que se inscriba utilizando su dirección de correo electrónico ya que entonces su espacio de trabajo puede ser fácilmente respaldado y compartido entre la aplicación web y la aplicación instalada en su computadora.
 
-![Download Postman](../../.gitbook/assets/postman_01_download.png)
+![Descargar Postman](../../.gitbook/assets/postman_01_download.png)
 
-After you installed the application, run it. It will prompt you to create an account or log in. Do so. Again, it is not necessary, but recommended.
+Después de instalar la aplicación, ejecutarla. Le pedirá que cree una cuenta o inicie sesión. Hazlo. De nuevo, no es necesario, pero recomendado.
 
-### Collection import
+### Importación de colección
 
-Select `New workspace` from Workspaces tab and follow the prompts to crate a new workspace. This will where the rest of the work will be done.
+Seleccione `Nuevo` espacio de trabajo en la pestaña Espacios de trabajo y siga las indicaciones para crear un nuevo espacio de trabajo. Aquí será donde se hará el resto del trabajo.
 
-![New workspace](../../.gitbook/assets/postman_02_workspace.png)
+![Nuevo espacio de trabajo](../../.gitbook/assets/postman_02_workspace.png)
 
-We're ready to import the collection. On the header of the Worskspaces tab select `New` and switch to `Link` tab.
+Estamos listos para importar la colección. En el encabezado de la pestaña Worskspaces seleccione `Nuevo` y cambie a `la` pestaña Enlace.
 
-![Import collection](../../.gitbook/assets/postman_03_import.png)
+![Colección de importaciones](../../.gitbook/assets/postman_03_import.png)
 
-There, in the URL input field paste the link to the collection:
+Allí, en el campo de entrada de URL pega el enlace a la colección:
 
 ```text
 https://raw.githubusercontent.com/ava-labs/avalanche-postman-collection/master/Avalanche.postman_collection.json
 ```
 
-Postman will recognize the format of the file content and offer to import the file as a collection. Complete the import. Now you will have Avalanche collection in your Workspace.
+Postman reconocerá el formato del contenido de archivo y ofrecerá importar el archivo como una colección. Completa la importación. Ahora tendrás la colección Avalanche en tu espacio de trabajo.
 
-![Collection content](../../.gitbook/assets/postman_04_collection.png)
+![Contenido de la colección](../../.gitbook/assets/postman_04_collection.png)
 
-### Environment import
+### Importación de medio ambiente
 
-Next, we have to import the environment variables. Again, the header of the Worskspaces tab select `New` and switch to `Link` tab. this time, paste the link to the environment JSON:
+A continuación, tenemos que importar las variables de entorno. De nuevo, el encabezado de la pestaña Worskspaces selecciona `Nuevo` y cambia a `la` pestaña Enlace. Esta vez, pega el enlace al entorno JSON:
 
 ```text
 https://raw.githubusercontent.com/ava-labs/avalanche-postman-collection/master/Example-Avalanche-Environment.postman_environment.json
 ```
 
-Postman will recognize the format of the file:
+Postal reconocerá el formato del archivo:
 
-![Environment import](../../.gitbook/assets/postman_05_environment.png)
+![Importación de medio ambiente](../../.gitbook/assets/postman_05_environment.png)
 
-Import it to your workspace. Now, we will need to edit that environment to suit the actual parameters of your particular installation. These are the parameters that differ from the defaults in the imported file.
+Importarlo a su espacio de trabajo. Ahora, necesitaremos editar ese entorno para adaptarse a los parámetros reales de su instalación en particular. Estos son los parámetros que difieren de los valores predeterminados en el archivo importado.
 
-Click the eye icon next to the environment dropdown:
+Haga clic en el icono de ojo junto al menú desplegable del entorno:
 
-![Environment content](../../.gitbook/assets/postman_06_variables.png)
+![Contenido del medio ambiente](../../.gitbook/assets/postman_06_variables.png)
 
-Select the `Edit` button to change the defaults. As a minimum, you will need to change the IP address of your node, which is the value of the `host` variable. Change it to the IP of your node \(change both the `initial` and `current` values\). Also, if your node is not running on the same machine where you installed Postman, make sure your node is accepting the connections on the API port from the outside by checking the appropriate [command line option](../references/command-line-interface.md#http-server).
+Seleccione el botón `Editar` para cambiar los valores predeterminados. Como mínimo, tendrá que cambiar la dirección IP de su nodo, que es el valor de la variable `anfitriona.` Cambiarlo a la IP de su nodo \(cambie tanto los valores `iniciales` como `actuales).` Además, si su nodo no se ejecuta en la misma máquina donde instaló Postman, asegúrese de que su nodo está aceptando las conexiones en el puerto API desde el exterior mediante la verificación de la [opción](../references/command-line-interface.md#http-server) de línea de comandos adecuada.
 
-Now we sorted everything out, and we're ready to query the node.
+Ahora hemos arreglado todo, y estamos listos para consultar el nodo.
 
-## Making API calls
+## Hacer llamadas de API
 
-Open one of the API call groups, for example `Health`. Double-click `getLiveness` call:
+Abra uno de los grupos de llamadas de API, por ejemplo `Health`. Haga doble clic en `getLiveness` llamada:
 
-![API call](../../.gitbook/assets/postman_07_making_calls.png)
+![Llamamiento API](../../.gitbook/assets/postman_07_making_calls.png)
 
-You will see that format of the call uses the `http`, `host` and `port` environment variables. Click `Send`. Request will be sent, and soon you will see the response, in the `Body` tab in the `Response`:
+Verá ese formato de la llamada utiliza las variables de entorno `http`, `host` y `port`. Haga clic en `Enviar`. La solicitud será enviada y pronto verá la respuesta, en la pestaña `Cuerpo` en la `Respuesta`:
 
-![Response](../../.gitbook/assets/postman_08_response.png)
+![Respuesta](../../.gitbook/assets/postman_08_response.png)
 
-To see the actual call and the variables that are sent to the node, switch to `Body` tab in the API call tabs. There you can quickly change the variables to see the response to different queries.
+Para ver la llamada real y las variables que se envían al nodo, cambie a pestaña `Cuerpo` en las pestañas de llamadas API . Allí puede cambiar rápidamente las variables para ver la respuesta a diferentes consultas.
 
-## Conclusion
+## Conclusión
 
-If you completed the tutorial, you are now able to quickly issue API calls to your node without messing with the curl commands in the terminal. This allows you to quickly see the state of your node, track changes or double-check the health or liveness of your node.
+Si completó el tutorial, ahora es capaz de emitir rápidamente llamadas API a su nodo sin meterse con los comandos de curl en la terminal. Esto le permite ver rápidamente el estado de su nodo, realizar cambios o revisar la salud o la vida de su nodo.
 
-## Contributing
+## Contribución
 
-We're hoping to continuously keep this collection up-to-date with the [Avalanche APIs](https://docs.avax.network/build/avalanchego-apis), and also add [data visualizations](https://learning.postman.com/docs/sending-requests/visualizer/#visualizing-response-data). If you're able to help improve the Avalanche Postman Collection in any way, first create a feature branch by branching off of `master`, next make the improvements on your feature branch and lastly create a [pull request](https://github.com/ava-labs/avalanche-docs/pulls) to merge your work back in to `master`.
+Esperamos mantener esta colección continuamente actualizada con las [API de Avalanche](https://docs.avax.network/build/avalanchego-apis), y también añadir [visualizaciones de datos](https://learning.postman.com/docs/sending-requests/visualizer/#visualizing-response-data). Si puedes ayudar a mejorar la colección Avalanche Postman de cualquier manera, primero cree una rama de función ramificando fuera del `maestro`, a continuación haz las mejoras en tu rama de funciones y por último crea una [solicitud](https://github.com/ava-labs/avalanche-docs/pulls) de tracción para fusionar tu trabajo de nuevo al `maestro`.
 
-If you have any other questions or suggestions, come [talk to us](https://chat.avalabs.org/).
+Si tienes alguna otra pregunta o sugerencias, ven [a hablar con nosotros](https://chat.avalabs.org/).
 
